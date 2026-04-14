@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Foundry builds AI agent teams for Claude Code. Tailored to independent developers or teams with standards and compliance needs." />
+  <meta property="og:title" content="Foundry — AI Agent Teams for Claude Code" />
+  <meta property="og:description" content="Build AI agent teams for Claude Code — in minutes, not days." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tryfoundry.dev" />
+  <title>Foundry — AI Agent Teams for Claude Code</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A8%3C/text%3E%3C/svg%3E" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0a0f;
+      color: #e5e7eb;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -20%, rgba(139, 92, 246, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 40%, rgba(59, 130, 246, 0.08), transparent);
+    }
+    a { color: inherit; text-decoration: none; }
+    code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 4px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .brand {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .brand .dot { color: #a78bfa; }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      font-size: 13px;
+      color: #9ca3af;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.04); }
+    .nav-links a.primary {
+      color: #fff;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      margin-left: 6px;
+    }
+    .nav-links a.primary:hover { background: rgba(139, 92, 246, 0.25); }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 48px;
+      text-align: center;
+    }
+    .beta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .beta-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #a78bfa;
+      border-radius: 100px;
+      box-shadow: 0 0 8px #a78bfa;
+    }
+    h1 {
+      font-size: clamp(34px, 5.4vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 20px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: #9ca3af;
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: #e5e7eb;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .btn-meta {
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .section-title h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .section-title p {
+      font-size: 14px;
+      color: #9ca3af;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Paths (solo / team) */
+    .paths {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+    }
+    .path {
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .path-solo { border-color: rgba(96, 165, 250, 0.18); }
+    .path-team { border-color: rgba(139, 92, 246, 0.22); }
+    .path-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .path-solo .path-icon { background: rgba(96, 165, 250, 0.12); color: #60a5fa; }
+    .path-team .path-icon { background: rgba(139, 92, 246, 0.12); color: #a78bfa; }
+    .path h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .path-for {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+    .path p {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .path ul {
+      list-style: none;
+      margin-top: auto;
+    }
+    .path li {
+      font-size: 13px;
+      color: #d1d5db;
+      padding: 6px 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .path li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 100px;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .path-solo li::before { background: #60a5fa; }
+    .path-team li::before { background: #a78bfa; }
+
+    /* Features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .feature {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 22px;
+      transition: border-color 0.2s;
+    }
+    .feature:hover { border-color: rgba(139, 92, 246, 0.25); }
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-title .icon {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(139, 92, 246, 0.12);
+      border-radius: 6px;
+      color: #a78bfa;
+      font-size: 11px;
+    }
+    .feature p {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.55;
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .step {
+      padding: 18px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: rgba(139, 92, 246, 0.15);
+      color: #a78bfa;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: 12px;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    /* Beta note */
+    .beta-note {
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: 14px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .beta-note h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .beta-note p {
+      font-size: 13px;
+      color: #9ca3af;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .beta-note a {
+      color: #a78bfa;
+      font-weight: 500;
+    }
+    .beta-note a:hover { color: #c4b5fd; }
+
+    /* Footer */
+    footer {
+      padding: 36px 0 56px;
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 20px;
+    }
+    footer a { color: #9ca3af; }
+    footer a:hover { color: #e5e7eb; }
+    footer .footer-links {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 40px 0 32px; }
+      section { padding: 40px 0; }
+      .nav-links a { padding: 7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/" class="brand">Foundry<span class="dot">.</span></a>
+      <div class="nav-links">
+        <a href="#audiences">Who it's for</a>
+        <a href="#features">Features</a>
+        <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">Donate</a>
+        <a href="#download" class="primary">Download</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <span class="beta-badge">Public Beta</span>
+      <h1>Build AI agent teams for Claude Code — <span class="accent">in minutes, not days.</span></h1>
+      <p class="hero-sub">
+        Foundry analyzes your codebase, asks about your workflow, and designs a custom team of
+        specialized agents. One experience if you're building solo, another if you're configuring
+        a team with standards and compliance needs.
+      </p>
+      <div class="cta-row" id="download">
+        <a id="download-btn" href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download for Windows</span>
+        </a>
+        <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Support development
+        </a>
+      </div>
+      <span class="btn-meta" id="version-meta">Free during beta · Windows 10/11 · Bring your own Anthropic API key</span>
+    </section>
+
+    <section id="audiences">
+      <div class="section-title">
+        <h2>One tool, two paths.</h2>
+        <p>Foundry adapts its setup experience and what it generates based on how you work.</p>
+      </div>
+      <div class="paths">
+        <div class="path path-solo">
+          <div class="path-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Independent developer</h3>
+          <div class="path-for">Personal projects · Freelance · Learning · Hobby</div>
+          <p>A streamlined setup that stays out of your way. The interview asks about your personal workflow and pain points, and Foundry builds a lean team that matches how you actually work.</p>
+          <ul>
+            <li>Shorter wizard, no compliance overhead</li>
+            <li>Interview focused on your velocity and common mistakes</li>
+            <li>Behavior presets tuned for solo development</li>
+            <li>Free, local knowledge graph and memory system</li>
+          </ul>
+        </div>
+        <div class="path path-team">
+          <div class="path-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Team or organization</h3>
+          <div class="path-for">Shared codebases · Team standards · Compliance requirements</div>
+          <p>Upload your policy documents and Foundry extracts enforceable rules from them. Every generated agent, hook, and permission traces back to the source doc that required it.</p>
+          <ul>
+            <li>Standards &amp; policy extraction from your own docs</li>
+            <li>Compliance frameworks: SOC 2, HIPAA, PCI-DSS, GDPR, ISO 27001</li>
+            <li>Enforcement artifacts (permissions, rules, hooks) with full traceability</li>
+            <li>Portable team blueprints — share a config across projects</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-title">
+        <h2>What you get</h2>
+        <p>The building blocks — and the intelligence that ties them together.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-title"><span class="icon">◆</span>AI-designed agents</div>
+          <p>The proposal engine reads your code, asks focused questions, and designs agents matched to your stack and conventions — not generic templates.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title"><span class="icon">⎔</span>Graphify knowledge graph</div>
+          <p>A local semantic graph of your codebase, updated on every commit. Agents query it instead of reading raw files — ~71× fewer tokens. Free forever, runs entirely offline.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title"><span class="icon">❋</span>MemPalace memory</div>
+          <p>Architectural decisions, conventions, and pain points accumulate across sessions. The Historian files new knowledge; every agent can search it.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title"><span class="icon">▣</span>Behavior presets &amp; toggles</div>
+          <p>Plan-before-acting, conventional commits, protection warnings, standing-order gates. Presets bundle sensible defaults; per-toggle overrides let you fine-tune.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title"><span class="icon">◎</span>2×2 agent taxonomy</div>
+          <p>Every agent has a role (Specialist or Guardian) and a kind (Worker or Scholar). Consistent mental model across the roster — visible in every surface.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title"><span class="icon">▶</span>Open architecture</div>
+          <p>Everything Foundry generates is standard Claude Code configuration — plain <code>.md</code> files, hooks, <code>settings.json</code>. No lock-in.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>How it works</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Analyze</div>
+          <div class="step-desc">Foundry scans your codebase locally via Graphify — no tokens spent.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">Scope</div>
+          <div class="step-desc">Solo or team? That fork shapes every step after.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">Interview</div>
+          <div class="step-desc">8–12 focused questions, adapted to your scope.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">Review</div>
+          <div class="step-desc">Approve, edit, or reject each proposed agent.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-title">Install</div>
+          <div class="step-desc">One click writes everything to <code>.claude/</code>.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="beta-note">
+        <h3>Foundry is in public beta</h3>
+        <p>
+          Free to download and use during the beta period. If you find it useful,
+          <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">donations on Ko-fi</a>
+          help fund development — and beta donors will get credit toward the purchase price at launch.
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">Ko-fi</a>
+        <a href="mailto:hello@tryfoundry.dev">Contact</a>
+      </div>
+      <div>© Foundry · Built for Claude Code</div>
+    </footer>
+  </div>
+
+  <script>
+    // Fetch latest release from GitHub API and wire up the download button.
+    // Falls back to the releases page (already set as the default href) on failure.
+    (async () => {
+      try {
+        const res = await fetch('https://api.github.com/repos/DrewBatcheller/tryfoundry-releases/releases/latest');
+        if (!res.ok) return;
+        const data = await res.json();
+        const exe = (data.assets || []).find(a => a.name.endsWith('.exe') && !a.name.endsWith('.blockmap'));
+        if (exe && exe.browser_download_url) {
+          const btn = document.getElementById('download-btn');
+          btn.href = exe.browser_download_url;
+          const meta = document.getElementById('version-meta');
+          if (data.tag_name) meta.textContent = `${data.tag_name} · Free during beta · Windows 10/11 · Bring your own Anthropic API key`;
+        }
+      } catch { /* keep fallback */ }
+    })();
+  </script>
+</body>
+</html>
