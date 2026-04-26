@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Foundry builds AI agent teams for Claude Code. Tailored to independent developers or teams with standards and compliance needs." />
+  <meta name="description" content="Foundry builds AI agent teams for Claude Code. Scholar AI analyzes your project, interviews you about your workflow, and proposes a custom team — with starter templates, restore-points, and full traceability. Free through the 1.0 beta." />
   <meta property="og:title" content="Foundry — AI Agent Teams for Claude Code" />
-  <meta property="og:description" content="Build AI agent teams for Claude Code — in minutes, not days." />
+  <meta property="og:description" content="Scholar AI builds you a custom team for Claude Code. Templates everywhere, restore-points on every item, full traceability. 1.0 beta out now." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tryfoundry.dev" />
   <title>Foundry — AI Agent Teams for Claude Code</title>
@@ -26,6 +26,7 @@
     a { color: inherit; text-decoration: none; }
     code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 4px; }
     .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     /* Nav */
     nav {
@@ -87,13 +88,13 @@
       box-shadow: 0 0 8px #a78bfa;
     }
     h1 {
-      font-size: clamp(34px, 5.4vw, 56px);
+      font-size: clamp(34px, 5.4vw, 58px);
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.08;
+      line-height: 1.06;
       color: #fff;
       margin-bottom: 20px;
-      max-width: 760px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -104,11 +105,11 @@
       -webkit-text-fill-color: transparent;
     }
     .hero-sub {
-      font-size: 17px;
+      font-size: 18px;
       color: #9ca3af;
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 auto 36px;
-      line-height: 1.6;
+      line-height: 1.55;
     }
     .cta-row {
       display: flex;
@@ -148,7 +149,7 @@
     }
     .btn-meta {
       display: block;
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 12px;
       color: #6b7280;
     }
@@ -160,17 +161,257 @@
       margin-bottom: 36px;
     }
     .section-title h2 {
-      font-size: 28px;
+      font-size: clamp(24px, 3.4vw, 32px);
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      line-height: 1.2;
     }
     .section-title p {
+      font-size: 15px;
+      color: #9ca3af;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: #a78bfa;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Product showcase — large hero screenshot */
+    .showcase {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .showcase-frame {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(59, 130, 246, 0.04));
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139, 92, 246, 0.1);
+    }
+    .showcase-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    /* Placeholder shown when screenshot file doesn't exist yet */
+    .showcase-frame .placeholder {
+      aspect-ratio: 16 / 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #6b7280;
+      font-size: 13px;
+      text-align: center;
+      padding: 40px;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(139, 92, 246, 0.02),
+        rgba(139, 92, 246, 0.02) 12px,
+        rgba(139, 92, 246, 0.04) 12px,
+        rgba(139, 92, 246, 0.04) 24px
+      );
+    }
+    .showcase-frame .placeholder code {
+      font-size: 11px;
+      color: #a78bfa;
+    }
+    .showcase-caption {
+      text-align: center;
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 16px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* Inline screenshot frame — for in-line proof shots inside other sections */
+    .shot-inline {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.3);
+      margin-top: 16px;
+    }
+    .shot-inline img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .shot-inline .placeholder {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 11px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    /* Scholar intro — Dean as the AI persona */
+    .scholar-intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 28px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(59, 130, 246, 0.03));
+      border: 1px solid rgba(139, 92, 246, 0.12);
+      border-radius: 20px;
+    }
+    .scholar-intro .avatar {
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15), transparent 70%);
+    }
+    .scholar-intro .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .scholar-intro-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .scholar-intro-text .label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #a78bfa;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .scholar-intro-text h3 {
+      font-size: 19px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .scholar-intro-text p {
       font-size: 14px;
       color: #9ca3af;
-      max-width: 520px;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .scholar-intro { flex-direction: column; text-align: center; }
+      .scholar-intro .avatar { width: 120px; height: 120px; }
+    }
+
+    /* The Pitch — three-step problem→answer→result */
+    .pitch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 900px;
       margin: 0 auto;
+    }
+    .pitch-card {
+      padding: 20px 22px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+    }
+    .pitch-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+    .pitch-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .pitch-card p {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.55;
+    }
+    @media (max-width: 768px) {
+      .pitch { grid-template-columns: 1fr; }
+    }
+
+    /* What gets built — artifact preview */
+    .artifacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 880px) {
+      .artifacts { grid-template-columns: 1fr; }
+    }
+    .artifact-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .artifact-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      color: #9ca3af;
+    }
+    .artifact-header::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #a78bfa;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+    .artifact-body {
+      padding: 18px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: #d1d5db;
+      flex: 1;
+    }
+    .artifact-body .dim { color: #6b7280; }
+    .artifact-body .key { color: #a78bfa; }
+    .artifact-body .str { color: #93c5fd; }
+    .artifact-body .indent { display: inline-block; width: 1.5em; }
+    .artifact-caption {
+      padding: 14px 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+      color: #9ca3af;
+      line-height: 1.55;
     }
 
     /* Paths (solo / team) */
@@ -200,6 +441,33 @@
     }
     .path-solo .path-icon { background: rgba(96, 165, 250, 0.12); color: #60a5fa; }
     .path-team .path-icon { background: rgba(139, 92, 246, 0.12); color: #a78bfa; }
+    .path-robot {
+      width: 100%;
+      height: 180px;
+      margin: -28px -28px 18px -28px;
+      width: calc(100% + 56px);
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+      position: relative;
+    }
+    .path-robot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .path-robot::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.02));
+      pointer-events: none;
+    }
     .path h3 {
       font-size: 18px;
       font-weight: 600;
@@ -239,6 +507,48 @@
     }
     .path-solo li::before { background: #60a5fa; }
     .path-team li::before { background: #a78bfa; }
+
+    /* What's new in 1.0 — hero highlights */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .highlight {
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(139, 92, 246, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: 14px;
+      transition: all 0.2s;
+    }
+    .highlight:hover {
+      border-color: rgba(139, 92, 246, 0.3);
+      transform: translateY(-2px);
+    }
+    .highlight-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.1);
+      padding: 3px 8px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .highlight h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .highlight p {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
 
     /* Features grid */
     .features-grid {
@@ -285,7 +595,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 12px;
-      max-width: 920px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .step {
@@ -319,27 +629,130 @@
       line-height: 1.5;
     }
 
+    /* Forge screenshot grid */
+    .forge-section { padding: 8px 0 56px; }
+    .forge-hero-shot {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(139, 92, 246, 0.18);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(139, 92, 246, 0.08);
+      margin-bottom: 12px;
+    }
+    .forge-hero-shot img {
+      display: block;
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: top left;
+    }
+    .forge-section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .forge-shot {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .forge-shot img {
+      display: block;
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      object-position: top left;
+    }
+    .forge-shot-caption {
+      padding: 9px 13px;
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.45;
+    }
+    .forge-shot-caption strong { color: #9ca3af; }
+    @media (max-width: 768px) {
+      .forge-section-grid { grid-template-columns: 1fr; }
+      .forge-hero-shot img { height: 220px; }
+      .forge-shot img { height: 160px; }
+    }
+
+    /* Artifact screenshot variant */
+    .artifact-screenshot {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+    }
+    .faq-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 18px 22px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      list-style: none;
+      transition: background 0.15s;
+    }
+    .faq-item summary:hover { background: rgba(255, 255, 255, 0.02); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 18px;
+      font-weight: 300;
+      color: #a78bfa;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item .faq-body {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.65;
+    }
+    .faq-item .faq-body code { font-size: 13px; }
+
     /* Beta note */
     .beta-note {
-      padding: 28px;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
-      border: 1px solid rgba(139, 92, 246, 0.15);
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.06));
+      border: 1px solid rgba(139, 92, 246, 0.2);
       border-radius: 14px;
       text-align: center;
       margin: 40px 0;
     }
     .beta-note h3 {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 600;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
     }
     .beta-note p {
-      font-size: 13px;
+      font-size: 14px;
       color: #9ca3af;
-      max-width: 580px;
+      max-width: 620px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: 1.65;
     }
     .beta-note a {
       color: #a78bfa;
@@ -378,16 +791,18 @@
     <nav>
       <a href="/" class="brand">Foundry<span class="dot">.</span></a>
       <div class="nav-links">
+        <a href="#what">What you get</a>
         <a href="#audiences">Who it's for</a>
-        <a href="#features">Features</a>
-        <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">Donate</a>
+        <a href="#whats-new">New in 1.0</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">GitHub</a>
         <a href="#download" class="primary">Download</a>
       </div>
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">Public Beta</span>
-      <h1>Build AI agent teams for Claude Code — <span class="accent">in minutes, not days.</span></h1>
+      <span class="beta-badge">v1.0.0 Beta · Launching Now</span>
+      <h1>Stop hand-rolling Claude Code agents. <span class="accent">Let Scholar build the team.</span></h1>
       <p class="hero-sub">
         Foundry interviews you, analyzes your codebase, then opens a collaborative workspace where
         Scholar — Foundry's AI — helps you configure everything: agents, behaviors, hooks, triggers,
@@ -397,29 +812,161 @@
       <div class="cta-row" id="download">
         <a id="download-btn" href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Download for Windows</span>
+          <span>Download Foundry 1.0 beta</span>
         </a>
-        <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener" class="btn btn-secondary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          Support development
+        <a href="#whats-new" class="btn btn-secondary">
+          See what's new
         </a>
       </div>
       <span class="btn-meta" id="version-meta">Free during beta · Windows 10/11 · Bring your own Anthropic API key</span>
     </section>
 
+    <!-- Product showcase — primary hero screenshot of the team page -->
+    <section style="padding: 32px 0 16px;">
+      <div class="showcase">
+        <div class="showcase-frame">
+          <img
+            src="/screenshots/team-page-roster.png"
+            alt="Foundry's team page showing five generated agents — Code Reviewer, Security Guardian, Architecture Historian, Compliance Auditor, Test Runner — each rendered with its 2x2 taxonomy robot."
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="placeholder" style="display:none;">
+            <span>Foundry team page (screenshot)</span>
+            <code>/screenshots/team-page-roster.png</code>
+          </div>
+        </div>
+        <p class="showcase-caption">Your team after Foundry runs. Five agents matched to a real billing service — security, review, history, compliance, tests. Every card pulls its 2×2 robot from role + kind.</p>
+      </div>
+    </section>
+
+    <!-- Forge editor showcase -->
+    <section class="forge-section">
+      <div class="section-title" style="margin-bottom: 24px;">
+        <span class="section-eyebrow">Forge</span>
+        <h2>Every surface. One editor.</h2>
+        <p>After Scholar builds your team, Forge is where you manage it — agents, hooks, rules, standards, behaviors, triggers, MCPs, skills, all live-synced to your <code>.claude/</code> directory.</p>
+      </div>
+      <div class="showcase">
+        <div class="forge-hero-shot">
+          <img src="/screenshots/forge-agents-bucket.png" alt="Forge editor — Agents bucket showing 5 generated agents with DETECTED and FOUNDRY badges" />
+        </div>
+        <div class="forge-section-grid">
+          <div class="forge-shot">
+            <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket — 5 of 29 toggles enabled, Living-Doc Workflow expanded showing path-scope" />
+            <div class="forge-shot-caption"><strong>Behaviors</strong> — 29 toggles. Enable globally, per-project, or scoped to specific file globs.</div>
+          </div>
+          <div class="forge-shot">
+            <img src="/screenshots/forge-standards-bucket.png" alt="Standards bucket — 3 compliance standards with DETECTED and FOUNDRY badges" />
+            <div class="forge-shot-caption"><strong>Standards</strong> — compliance frameworks stored as one file each with full traceability.</div>
+          </div>
+          <div class="forge-shot">
+            <img src="/screenshots/forge-triggers-bucket.png" alt="Triggers bucket — 3 triggers: src-test-runner, pre-commit-security, post-build-audit" />
+            <div class="forge-shot-caption"><strong>Triggers</strong> — file watchers, git hooks, npm scripts that run agents outside sessions.</div>
+          </div>
+          <div class="forge-shot">
+            <img src="/screenshots/forge-skills-bucket.png" alt="Skills bucket — 3 skills: graphify, migration-reviewer, stripe-helper" />
+            <div class="forge-shot-caption"><strong>Skills</strong> — slash commands and reusable workflows available to every agent.</div>
+          </div>
+          <div class="forge-shot">
+            <img src="/screenshots/forge-mcps-bucket.png" alt="MCPs bucket — 5 MCP servers: postgres, github, stripe, code-graph, memory-palace" />
+            <div class="forge-shot-caption"><strong>MCPs</strong> — project-scoped server connections that extend what agents can access.</div>
+          </div>
+          <div class="forge-shot">
+            <img src="/screenshots/forge-domain-exclusions-bucket.png" alt="Domain Exclusions bucket — 5 deny patterns blocking rm -rf, DROP TABLE, .env writes" />
+            <div class="forge-shot-caption"><strong>Domain Exclusions</strong> — tool-call patterns agents are permanently blocked from running.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet the Scholar — Dean as the AI narrator/persona -->
+    <section style="padding: 24px 0 0;">
+      <div class="scholar-intro">
+        <div class="avatar">
+          <img src="/robots/dean.png" alt="Dean — Foundry's Scholar AI" loading="lazy" />
+        </div>
+        <div class="scholar-intro-text">
+          <div class="label">Meet your Scholar</div>
+          <h3>Dean reads your project, then proposes the team.</h3>
+          <p>Foundry's Scholar AI doesn't apply templates — he interviews you about your codebase, scans your repo locally via Graphify, and writes custom agent prompts matched to how <em>your</em> project actually works. He shows his reasoning at every step.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The pitch — problem → answer → result -->
+    <section style="padding-top: 48px;">
+      <div class="pitch">
+        <div class="pitch-card">
+          <div class="pitch-eyebrow">The problem</div>
+          <h3>Configuring Claude Code is tedious.</h3>
+          <p>Hand-writing agent <code>.md</code> files, behavior rules, hook scripts, standing orders — hours of YAML, copy-paste, and trial-and-error before you've shipped anything.</p>
+        </div>
+        <div class="pitch-card">
+          <div class="pitch-eyebrow">The answer</div>
+          <h3>Scholar AI designs the team.</h3>
+          <p>Foundry analyzes your codebase locally via Graphify, interviews you for ten minutes, and proposes a complete config — agents, hooks, rules, standards — explaining every choice.</p>
+        </div>
+        <div class="pitch-card">
+          <div class="pitch-eyebrow">The result</div>
+          <h3>You approve. It ships.</h3>
+          <p>Nothing touches <code>.claude/</code> until you say so. Every artifact has a restore-point. The whole config is plain Claude Code — edit it forever, in or out of Foundry.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you get when you run it — concrete artifacts -->
+    <section id="what">
+      <div class="section-title">
+        <span class="section-eyebrow">What it builds</span>
+        <h2>Real Claude Code config, generated for your project.</h2>
+        <p>Foundry's output isn't a black box. It's standard <code>.claude/</code> — every file is plain markdown or JSON you can read, edit, and version-control yourself.</p>
+      </div>
+      <div class="artifacts">
+        <div class="artifact-card">
+          <div class="artifact-header">Scholar collects your context first</div>
+          <img
+            class="artifact-screenshot"
+            src="/screenshots/forge-project-context.png"
+            alt="Project Context panel showing interview answers — developer experience, project clarity, communication style, caution level, and compliance frameworks"
+          />
+          <div class="artifact-caption">Developer experience, project clarity, communication style, caution level — everything Scholar learned is stored in <code>.claude/foundry-context.json</code> and browseable any time.</div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-header">.claude/{rules, standards, hooks}</div>
+          <div class="artifact-body">
+<span class="dim">rules/</span><br>
+<span class="dim">├─</span> <span class="key">api-design.md</span> <span class="dim">(scope: src/api/**)</span><br>
+<span class="dim">├─</span> <span class="key">test-conventions.md</span><br>
+<span class="dim">└─</span> <span class="key">commit-style.md</span><br>
+<br>
+<span class="dim">standards/</span><br>
+<span class="dim">├─</span> <span class="key">soc2-controls.md</span><br>
+<span class="dim">└─</span> <span class="key">no-hardcoded-secrets.md</span><br>
+<br>
+<span class="dim">settings.json hooks:</span><br>
+<span class="dim">├─</span> <span class="str">PreToolUse/Bash</span> → block force-push<br>
+<span class="dim">├─</span> <span class="str">PostToolUse/Edit</span> → run prettier<br>
+<span class="dim">└─</span> <span class="str">Stop</span> → desktop notification
+          </div>
+          <div class="artifact-caption">Path-scoped rules, file-per-standard storage, and one-click hook templates. Every artifact traces back to where it came from.</div>
+        </div>
+      </div>
+    </section>
+
     <section id="audiences">
       <div class="section-title">
-        <h2>One tool, two paths.</h2>
-        <p>Foundry adapts its setup experience and what it generates based on how you work.</p>
+        <span class="section-eyebrow">Two audiences</span>
+        <h2>One tool. Different setups for solo vs. team work.</h2>
+        <p>The wizard branches early. Both paths get the same engine — solo strips ceremony, team unlocks compliance and policy extraction.</p>
       </div>
       <div class="paths">
         <div class="path path-solo">
-          <div class="path-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="path-robot">
+            <img src="/robots/specialist-worker.png" alt="" loading="lazy" />
           </div>
           <h3>Independent developer</h3>
-          <div class="path-for">Personal projects · Freelance · Learning · Hobby</div>
-          <p>A streamlined setup that stays out of your way. The interview asks about your personal workflow and pain points, and Foundry builds a lean team that matches how you actually work.</p>
+          <div class="path-for">Personal projects · Freelance · Hobby · Learning</div>
+          <p>A streamlined setup that stays out of your way. Scholar asks about your personal workflow and pain points, then proposes a lean team matched to how you actually work — and explains every choice.</p>
           <ul>
             <li>Streamlined path, no compliance overhead</li>
             <li>Interview focused on your velocity and common mistakes</li>
@@ -429,12 +976,12 @@
           </ul>
         </div>
         <div class="path path-team">
-          <div class="path-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="path-robot">
+            <img src="/robots/guardian-scholar.png" alt="" loading="lazy" />
           </div>
           <h3>Team or organization</h3>
           <div class="path-for">Shared codebases · Team standards · Compliance requirements</div>
-          <p>Upload your policy documents and Foundry extracts enforceable rules from them. Every generated agent, hook, and permission traces back to the source doc that required it.</p>
+          <p>Upload your policy documents and Scholar extracts enforceable rules from them. Every generated agent, hook, and permission traces back to the source doc that required it.</p>
           <ul>
             <li>Standards &amp; policy extraction from your own docs</li>
             <li>Compliance frameworks: SOC 2, HIPAA, PCI-DSS, GDPR, ISO 27001</li>
@@ -445,10 +992,64 @@
       </div>
     </section>
 
+    <!-- New in 1.0 — the headline release features -->
+    <section id="whats-new">
+      <div class="section-title">
+        <span class="section-eyebrow">New in 1.0 beta</span>
+        <h2>The build the launch needed.</h2>
+        <p>The 1.0 beta closes the durability gaps. Everything you build now persists, every Foundry-managed item is reset-able, and every bucket has one-click starter templates.</p>
+      </div>
+      <div class="highlights">
+        <div class="highlight">
+          <span class="highlight-tag">★ Headline</span>
+          <h3>Per-item baselines</h3>
+          <p>Every Foundry-managed item — agents, hooks, rules, standards — auto-captures its first-deployed state. One click to <strong>Reset to baseline</strong> if a Scholar revision goes sideways. One click to <strong>Update baseline</strong> when you settle on a new "good" state.</p>
+          <div class="shot-inline">
+            <img src="/screenshots/forge-baselines-menu.png" alt="Per-item kebab menu opened on a Foundry-managed hook, surfacing the Set baseline action"
+                 onerror="this.parentElement.style.display='none';" />
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="highlight-tag">★ Headline</span>
+          <h3>Templates everywhere</h3>
+          <p>Every bucket — hooks, agents, triggers, skills, rules, standards — now has a <strong>Pick from library</strong> modal AND an inline pill row in the editor. Curated starter content for every common use case. Templates are starting points, not ceilings.</p>
+          <div class="shot-inline">
+            <img src="/screenshots/forge-hooks-pickfromlibrary.png" alt="Hooks bucket Pick from library modal with nine starter templates visible"
+                 onerror="this.parentElement.style.display='none';" />
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="highlight-tag">★ Headline</span>
+          <h3>Path-scoped behaviors</h3>
+          <p>Behavior rules now target file globs. "Write tests in TDD style" fires only when Claude touches test files. "Validate API contracts" fires only on API routes. Pick from 29 toggles — nothing is pre-enabled, and every toggle is scope-able.</p>
+          <div class="shot-inline">
+            <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket showing 5 of 29 toggles enabled, with Living-Doc Workflow expanded"
+                 onerror="this.parentElement.style.display='none';" />
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="highlight-tag">Quality</span>
+          <h3>Reliable persistence</h3>
+          <p>Standards and rules now save correctly across both the wizard and the disk-mode editor. Hooks and triggers carry stable identities so baselines survive reload. The <code>.claude/</code> tree stays atomic on writes — no more half-written files on crash.</p>
+        </div>
+        <div class="highlight">
+          <span class="highlight-tag">Quality</span>
+          <h3>Scholar feedback transparency</h3>
+          <p>When generation fails, you see why — not a silent fallback. Mid-flow reasoning is browseable via a dedicated modal. Agent diffs now surface model, effort, and disallowed-tools changes that previously got applied invisibly.</p>
+        </div>
+        <div class="highlight">
+          <span class="highlight-tag">Quality</span>
+          <h3>Path-scoped behaviors</h3>
+          <p>Behavior rules can now target file globs. A "Write tests in TDD style" rule fires only when Claude touches test files; a "Validate API contracts" rule fires only on API routes. Dramatically less context bloat for behaviors you only want active sometimes.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="features">
       <div class="section-title">
-        <h2>What you get</h2>
-        <p>The building blocks — and the intelligence that ties them together.</p>
+        <span class="section-eyebrow">Foundations</span>
+        <h2>What's under the hood.</h2>
+        <p>The free building blocks — and the intelligence that ties them together.</p>
       </div>
       <div class="features-grid">
         <div class="feature">
@@ -473,30 +1074,32 @@
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">▶</span>Open architecture</div>
-          <p>Everything Foundry generates is standard Claude Code configuration — plain <code>.md</code> files, hooks, <code>settings.json</code>. No lock-in.</p>
+          <p>Everything Foundry generates is standard Claude Code configuration — plain <code>.md</code> files, hooks, <code>settings.json</code>. No lock-in. Nothing touches disk until you approve it.</p>
         </div>
       </div>
     </section>
 
     <section>
       <div class="section-title">
-        <h2>How it works</h2>
+        <span class="section-eyebrow">The flow</span>
+        <h2>How it works.</h2>
+        <p>From clean repo to running team in under fifteen minutes.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-title">Analyze</div>
-          <div class="step-desc">Foundry scans your codebase locally via Graphify — no tokens spent.</div>
+          <div class="step-desc">Foundry scans your codebase locally via Graphify — no tokens spent, no data leaves your machine.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-title">Scope</div>
-          <div class="step-desc">Solo or team? That fork shapes every step after.</div>
+          <div class="step-desc">Solo or team? Novice or advanced? That shapes every step and what Scholar proposes.</div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-title">Interview</div>
-          <div class="step-desc">8–12 focused questions, adapted to your scope.</div>
+          <div class="step-desc">Scholar asks focused questions about your workflow and pain points — nothing generic.</div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
@@ -505,19 +1108,62 @@
         </div>
         <div class="step">
           <div class="step-num">5</div>
-          <div class="step-title">Install</div>
-          <div class="step-desc">One click writes everything to <code>.claude/</code>.</div>
+          <div class="step-title">Approve</div>
+          <div class="step-desc">One final confirmation. Nothing is written to <code>.claude/</code> until you say so.</div>
         </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-title">Install</div>
+          <div class="step-desc">Foundry writes your team configuration. Every artifact gets a baseline restore-point automatically.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-title">
+        <span class="section-eyebrow">FAQ</span>
+        <h2>Common questions.</h2>
+        <p>Things people usually want to know before they install. If yours isn't here, <a href="mailto:hello@tryfoundry.dev" style="color:#a78bfa;">email us</a>.</p>
+      </div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Do I need an API key? Does Foundry use my tokens?</summary>
+          <div class="faq-body">Yes — Foundry is BYOK (bring your own key). You pay Anthropic directly for the Scholar's analysis and proposals during setup. Once your team is generated, the agents run as part of <em>your</em> normal Claude Code usage — Foundry doesn't insert itself into runtime. Codebase scanning is local (Graphify, no tokens). MemPalace is local. The token cost is the wizard interview itself, typically a few cents per setup.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens to my code? Does any of it leave my machine?</summary>
+          <div class="faq-body">Your source files stay local. Graphify builds a semantic index entirely on your machine. The Scholar reads <em>summaries</em> and <em>references</em> from that index, plus whatever you tell it in the interview. It never uploads your code wholesale. The only thing crossing the network is the structured context Scholar sends to the Claude API — and that data goes to Anthropic, not to us.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What if Scholar's proposals are wrong? Can I edit?</summary>
+          <div class="faq-body">Yes, at every stage. The Review step shows every agent, hook, rule, and standard before anything writes. You can edit, remove, or reject any of them. After install, the Forge editor lets you keep editing — and every Foundry-managed item has a baseline restore-point so you can <strong>Reset to baseline</strong> if a later edit goes sideways. None of it is locked-in: it's all standard <code>.claude/</code> config.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is this lock-in? What if I uninstall?</summary>
+          <div class="faq-body">No lock-in. Everything Foundry creates is standard Claude Code configuration — plain markdown agents, JSON hooks, rules files. Uninstalling Foundry doesn't break your team; the config keeps working. Foundry tracks what it created via a manifest at <code>.claude/.foundry-manifest.json</code> so the uninstall flow knows exactly what to remove and what was user-authored.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Why "1.0 beta" and not just "1.0"?</summary>
+          <div class="faq-body">The product is feature-complete and stable enough to call 1.0, but the paid-tier license-key system isn't ready yet — and we want to validate the launch flow with real users before charging anyone. Beta builds are time-gated to 30 days each, free during the beta period, with the next build available before the previous one expires. When license keys land, this becomes 1.0 stable.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Mac? Linux?</summary>
+          <div class="faq-body">Windows-first. Linux is a stretch goal we hope to ship soon after launch (AppImage target). Mac is post-1.0 — Apple code-signing and notarization adds enough overhead that we're punting it until the Windows release proves out.</div>
+        </details>
+        <details class="faq-item">
+          <summary>"Windows protected your PC" — is this safe?</summary>
+          <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source — every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
+        </details>
       </div>
     </section>
 
     <div class="container">
       <section class="beta-note">
-        <h3>Foundry is in public beta</h3>
+        <h3>1.0 beta is free — and stays free during the beta.</h3>
         <p>
-          Free to download and use during the beta period. If you find it useful,
-          <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">donations on Ko-fi</a>
-          help fund development — and beta donors will get credit toward the purchase price at launch.
+          Free to download and use during the beta period. Each build is time-gated to 30 days, with the next one available before the previous one expires.
+          If you find Foundry useful, <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">donations on Ko-fi</a>
+          help fund development — and beta donors will get credit toward the purchase price at the eventual 1.0 stable launch.
         </p>
       </section>
     </div>
@@ -525,6 +1171,7 @@
     <footer>
       <div class="footer-links">
         <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">Source</a>
         <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">Ko-fi</a>
         <a href="mailto:hello@tryfoundry.dev">Contact</a>
       </div>
