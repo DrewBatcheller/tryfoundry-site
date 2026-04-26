@@ -889,10 +889,8 @@
     <nav>
       <a href="/" class="brand">Foundry<span class="dot">.</span></a>
       <div class="nav-links">
-        <a href="#what">What you get</a>
-        <a href="#audiences">Who it's for</a>
         <a href="/build-notes.html">Build Notes</a>
-        <a href="#faq">FAQ</a>
+        <a href="/faq.html">FAQ</a>
         <a href="#download" class="primary">Download</a>
       </div>
     </nav>
@@ -1261,43 +1259,6 @@
       </div>
     </section>
 
-    <section id="faq">
-      <div class="section-title">
-        <span class="section-eyebrow">FAQ</span>
-        <h2>Common questions.</h2>
-        <p>Things people usually want to know before they install. If yours isn't here, <a href="mailto:hello@tryfoundry.dev" style="color:#a78bfa;">email us</a>.</p>
-      </div>
-      <div class="faq">
-        <details class="faq-item">
-          <summary>Do I need an API key? Does Foundry use my tokens?</summary>
-          <div class="faq-body">Yes. Foundry is BYOK (bring your own key). You pay Anthropic directly for Scholar's analysis and proposals during setup. Once your team is generated, the agents run as part of <em>your</em> normal Claude Code usage. Foundry doesn't insert itself into runtime. Codebase scanning is local (Graphify, no tokens). MemPalace is local. The token cost is the wizard interview itself, typically a few cents per setup.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What happens to my code? Does any of it leave my machine?</summary>
-          <div class="faq-body">Your source files stay local. Graphify builds a semantic index entirely on your machine. Scholar reads <em>summaries</em> and <em>references</em> from that index, plus whatever you tell it in the interview. It never uploads your code wholesale. The only thing crossing the network is the structured context Scholar sends to the Claude API, and that data goes to Anthropic, not to us.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What if Scholar's proposals are wrong? Can I edit?</summary>
-          <div class="faq-body">Yes, at every stage. The Review step shows every agent, hook, rule, and standard before anything writes. You can edit, remove, or reject any of them. After install, the Forge editor lets you keep editing, and every Foundry-managed item has a baseline restore-point so you can <strong>Reset to baseline</strong> if a later edit goes sideways. None of it is locked-in: it's all standard <code>.claude/</code> config.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Is this lock-in? What if I uninstall?</summary>
-          <div class="faq-body">No lock-in. Everything Foundry creates is standard Claude Code configuration: plain markdown agents, JSON hooks, and rules files. Uninstalling Foundry doesn't break your team; the config keeps working. Foundry tracks what it created via a manifest at <code>.claude/.foundry-manifest.json</code> so the uninstall flow knows exactly what to remove and what was user-authored.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Why "1.0 beta" and not just "1.0"?</summary>
-          <div class="faq-body">The product is feature-complete and stable enough to call 1.0, but the paid-tier license-key system isn't ready yet, and we want to validate the launch flow with real users before charging anyone. Beta builds are time-gated to 30 days each, free during the beta period, with the next build available before the previous one expires. When license keys land, this becomes 1.0 stable.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Mac? Linux?</summary>
-          <div class="faq-body">Windows-first. Linux is a stretch goal we hope to ship soon after launch (AppImage target). Mac is post-1.0. Apple code-signing and notarization add enough overhead that we're punting it until the Windows release proves out.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Is the "Windows protected your PC" warning safe?</summary>
-          <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source. Every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/try-foundry/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
-        </details>
-      </div>
-    </section>
 
     <div class="container">
       <section class="beta-note">
@@ -1319,6 +1280,7 @@
 
     <footer>
       <div class="footer-links">
+        <a href="/privacy.html">Privacy</a>
         <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">Ko-fi</a>
         <a href="mailto:hello@tryfoundry.dev">Contact</a>
       </div>

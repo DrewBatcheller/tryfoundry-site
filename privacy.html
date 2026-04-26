@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="What Foundry collects, what stays local, and how to opt out." />
+  <meta property="og:title" content="Foundry · Privacy" />
+  <meta property="og:description" content="What Foundry collects, what stays local, and how to opt out." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tryfoundry.dev/privacy.html" />
+  <title>Foundry · Privacy</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A8%3C/text%3E%3C/svg%3E" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0a0f;
+      color: #e5e7eb;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -20%, rgba(139, 92, 246, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 40%, rgba(59, 130, 246, 0.08), transparent);
+    }
+    a { color: inherit; text-decoration: none; }
+    code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 4px; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .brand { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
+    .brand .dot { color: #a78bfa; }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      font-size: 13px;
+      color: #9ca3af;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .nav-links a.primary {
+      background: #8b5cf6;
+      color: #fff;
+      font-weight: 500;
+    }
+    .nav-links a.primary:hover { background: #a78bfa; }
+
+    .page-header {
+      padding: 56px 0 16px;
+    }
+    .page-header .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.1);
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .page-header .updated {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .prose { padding: 16px 0 80px; }
+    .prose h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      margin: 32px 0 12px;
+      letter-spacing: -0.01em;
+    }
+    .prose h2:first-of-type { margin-top: 24px; }
+    .prose h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #d1d5db;
+      margin: 20px 0 8px;
+    }
+    .prose p {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .prose ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .prose ul li {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .prose ul li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: #6b7280;
+    }
+    .prose ul li strong { color: #d1d5db; font-weight: 600; }
+    .prose a { color: #a78bfa; }
+    .prose a:hover { text-decoration: underline; }
+
+    .summary-card {
+      background: rgba(139, 92, 246, 0.06);
+      border: 1px solid rgba(139, 92, 246, 0.18);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 16px 0 8px;
+    }
+    .summary-card .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin-bottom: 8px;
+    }
+    .summary-card p {
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+    .footer-links a:hover { color: #a78bfa; }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.primary) { display: none; }
+      .nav-links a.primary { padding: 6px 12px; font-size: 12px; }
+      .page-header { padding: 32px 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/" class="brand">Foundry<span class="dot">.</span></a>
+      <div class="nav-links">
+        <a href="/build-notes.html">Build Notes</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/#download" class="primary">Download</a>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <span class="eyebrow">Privacy</span>
+      <h1>Privacy policy.</h1>
+      <p class="updated">Last updated: 2026-04-26</p>
+    </section>
+
+    <div class="prose">
+
+      <div class="summary-card">
+        <div class="label">In one paragraph</div>
+        <p>Foundry runs locally on your machine. Your code, file paths, and project content never leave your computer. We collect anonymous usage events (session start, wizard completion, etc.) by default and bug reports / feedback when you submit them. You can turn telemetry off at any time. We never collect or transmit your code, your API keys, your agent instructions, or any personally identifying information.</p>
+      </div>
+
+      <h2>What we collect</h2>
+
+      <h3>Anonymous usage telemetry (on by default)</h3>
+      <p>To understand how Foundry is being used and where it breaks, the app sends a small set of anonymous events:</p>
+      <ul>
+        <li><code>session_start</code> and <code>session_end</code> when you open and close the app</li>
+        <li><code>wizard_complete</code> with the mode you chose, the number of agents generated, and the number of capabilities installed</li>
+        <li><code>forge_agent</code> with the agent role and kind when you create an agent in the Forge editor</li>
+        <li><code>refinement_approved</code> with the agent name when you accept a refinement proposal</li>
+        <li><code>blueprint_import</code> and <code>blueprint_export</code> with the number of agents involved</li>
+      </ul>
+      <p>Every event includes the app version, your operating system, the number of beta days remaining, and a random session ID that is not persisted between launches.</p>
+
+      <h3>Bug reports and feedback (only when you send them)</h3>
+      <p>If you click the feedback button inside the app, we receive the category you picked and the message you wrote. Nothing more.</p>
+
+      <h2>What we never collect</h2>
+      <ul>
+        <li>Your source code, file contents, or file paths</li>
+        <li>Your project names or repository URLs</li>
+        <li>Your Anthropic API key or any other credentials</li>
+        <li>Your agent instructions, hook scripts, or rule files</li>
+        <li>Anything you type into the wizard interview or chat with Scholar</li>
+        <li>Personal identifiers: your name, email, IP address, machine ID, or browser fingerprint</li>
+      </ul>
+
+      <h2>What stays on your machine</h2>
+      <p>Foundry does most of its work locally:</p>
+      <ul>
+        <li><strong>Graphify</strong> builds the semantic index of your codebase entirely on your computer. No tokens spent, no data uploaded.</li>
+        <li><strong>MemPalace</strong> stores its memory graph in a local SQLite + vector database under your project's <code>.mempalace/</code> directory. Each project's memory is yours alone.</li>
+        <li><strong>Generated agents, hooks, rules, and standards</strong> are written to your project's <code>.claude/</code> directory as plain files.</li>
+        <li><strong>Settings, API keys, and telemetry preferences</strong> live in your OS user directory and are encrypted via your operating system's keychain when sensitive.</li>
+      </ul>
+
+      <h2>Third-party services</h2>
+
+      <h3>Anthropic (Claude API)</h3>
+      <p>Foundry is bring-your-own-key. When Scholar runs an interview or a generation step, your project context and your interview answers are sent directly from your machine to Anthropic's API using your API key. That data is governed by Anthropic's terms of service and privacy policy. Foundry does not see, log, or proxy this traffic.</p>
+
+      <h3>GitHub (auto-updates)</h3>
+      <p>Foundry checks for new versions by fetching the public release manifest from GitHub. The request is anonymous; no account or identifying data is sent.</p>
+
+      <h3>Google Sheets webhook (telemetry storage)</h3>
+      <p>Anonymous telemetry events and feedback submissions are POSTed to a Google Apps Script webhook that writes them into a Google Sheet we maintain. The sheet is private to the Foundry team. Standard Google network metadata applies (IP address visible to Google during the request). We do not store or process IP addresses on our end.</p>
+
+      <h2>Data retention</h2>
+      <p>Telemetry events and feedback submissions are kept indefinitely in the Google Sheet so we can study product trends over time. There is no scheduled purge. If you want a specific entry deleted, email <a href="mailto:hello@tryfoundry.dev">hello@tryfoundry.dev</a> with a description of the entry and we will remove it.</p>
+
+      <h2>Opting out of telemetry</h2>
+      <p>Open Foundry, go to <strong>Settings → Privacy</strong>, and turn off telemetry. Once disabled, no events are sent. The first-run notice in the app explains this and links to the same setting. Feedback submissions remain a one-time, user-initiated action — turning off telemetry does not affect your ability to send a bug report when you want to.</p>
+
+      <h2>Children</h2>
+      <p>Foundry is a developer tool and is not directed at children under 13. We do not knowingly collect data from anyone under 13.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes materially, we will update this page and bump the date at the top. Past versions are visible in the public commit history of <a href="https://github.com/try-foundry/tryfoundry-site" target="_blank" rel="noopener">try-foundry/tryfoundry-site</a>.</p>
+
+      <h2>Contact</h2>
+      <p>Questions, deletion requests, or anything else: <a href="mailto:hello@tryfoundry.dev">hello@tryfoundry.dev</a>.</p>
+
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">Ko-fi</a>
+        <a href="mailto:hello@tryfoundry.dev">Contact</a>
+      </div>
+      <div>© Foundry · Built for Claude Code</div>
+    </footer>
+  </div>
+</body>
+</html>
