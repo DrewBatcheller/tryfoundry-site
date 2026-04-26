@@ -891,7 +891,7 @@
       <div class="nav-links">
         <a href="#what">What you get</a>
         <a href="#audiences">Who it's for</a>
-        <a href="#whats-new">Release Notes</a>
+        <a href="/build-notes.html">Build Notes</a>
         <a href="#faq">FAQ</a>
         <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">GitHub</a>
         <a href="#download" class="primary">Download</a>
@@ -912,7 +912,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Download Foundry 1.0 beta</span>
         </a>
-        <a href="#whats-new" class="btn btn-secondary">
+        <a href="/build-notes.html" class="btn btn-secondary">
           See what's new
         </a>
       </div>
@@ -1060,38 +1060,38 @@
 
     <section id="audiences">
       <div class="section-title">
-        <span class="section-eyebrow">Two audiences</span>
-        <h2>One tool. Different setups for solo vs. team work.</h2>
-        <p>The wizard branches early. Both paths get the same engine. Solo strips ceremony; team unlocks compliance and policy extraction.</p>
+        <span class="section-eyebrow">What makes Foundry different</span>
+        <h2>The first Claude Code setup tool built for compliance teams.</h2>
+        <p>Solo dev support is table stakes. Foundry's edge: upload your security policies or coding standards, and Scholar extracts enforceable rules with full traceability from agent to source line. SOC 2, HIPAA, PCI-DSS, GDPR, ISO 27001 — ready out of the gate.</p>
       </div>
       <div class="paths">
-        <div class="path path-solo">
-          <div class="path-robot">
-            <img src="/robots/specialist-worker.png" alt="" loading="lazy" />
-          </div>
-          <h3>Independent developer</h3>
-          <div class="path-for">Personal projects · Freelance · Hobby · Learning</div>
-          <p>A streamlined setup that stays out of your way. Scholar asks about your personal workflow and pain points, then proposes a lean team matched to how you actually work and explains every choice.</p>
-          <ul>
-            <li>Streamlined path, no compliance overhead</li>
-            <li>Interview focused on your velocity and common mistakes</li>
-            <li>Scholar chat available throughout the Brief to refine any proposal</li>
-            <li>Behavior presets tuned for solo development</li>
-            <li>Free, local knowledge graph and memory system</li>
-          </ul>
-        </div>
         <div class="path path-team">
           <div class="path-robot">
             <img src="/robots/guardian-scholar.png" alt="" loading="lazy" />
           </div>
-          <h3>Team or organization</h3>
-          <div class="path-for">Shared codebases · Team standards · Compliance requirements</div>
-          <p>Upload your policy documents and Scholar extracts enforceable rules from them. Every generated agent, hook, and permission traces back to the source doc that required it.</p>
+          <div style="display:inline-block; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#a78bfa; background:rgba(139,92,246,0.12); padding:3px 9px; border-radius:100px; margin-bottom:12px;">Unique to Foundry</div>
+          <h3>Team / Enterprise</h3>
+          <div class="path-for">Shared codebases · Compliance review · Policy enforcement</div>
+          <p>Upload your security policies, coding standards, or regulatory framework. Scholar extracts enforceable rules and wires them into agents, hooks, and permissions. Every artifact traces back to the source doc that required it — no audit-time surprises.</p>
           <ul>
             <li>Standards &amp; policy extraction from your own docs</li>
-            <li>Compliance frameworks: SOC 2, HIPAA, PCI-DSS, GDPR, ISO 27001</li>
-            <li>Enforcement artifacts (permissions, rules, hooks) with full traceability</li>
-            <li>Portable team blueprints, shareable across projects</li>
+            <li>SOC 2, HIPAA, PCI-DSS, GDPR, ISO 27001 out of the box</li>
+            <li>Full traceability: agent → rule → source line</li>
+            <li>Portable team blueprints — share across projects, onboard new devs</li>
+          </ul>
+        </div>
+        <div class="path path-solo">
+          <div class="path-robot">
+            <img src="/robots/specialist-worker.png" alt="" loading="lazy" />
+          </div>
+          <h3>Solo / Personal</h3>
+          <div class="path-for">Personal projects · Freelance · Learning</div>
+          <p>Skip the team controls and Foundry runs as a streamlined wizard tuned for solo workflows. Same Scholar, same Forge, just with the compliance scaffolding stripped away.</p>
+          <ul>
+            <li>No compliance overhead — Scholar focuses on velocity and common mistakes</li>
+            <li>Behavior presets tuned for solo development</li>
+            <li>Same local Graphify knowledge graph and MemPalace memory</li>
+            <li>Scholar chat available throughout the Forge to refine any proposal</li>
           </ul>
         </div>
       </div>
@@ -1101,8 +1101,8 @@
     <section id="whats-new">
       <div class="section-title">
         <span class="section-eyebrow">Changelog</span>
-        <h2>Release notes.</h2>
-        <p>What shipped, version by version.</p>
+        <h2>Latest releases.</h2>
+        <p>The three most recent. <a href="/build-notes.html" style="color:#a78bfa; text-decoration:underline;">See full build notes →</a></p>
       </div>
       <div class="release-notes">
 
@@ -1194,7 +1194,7 @@
       <div class="features-grid">
         <div class="feature">
           <div class="feature-title"><span class="icon">◆</span>Scholar, your AI configurator</div>
-          <p>Scholar reads your code, conducts the interview, then works alongside you in the Brief workspace. Ask it to add, revise, or explain any proposal. Every suggestion comes with a justification.</p>
+          <p>Scholar reads your code, conducts the interview, then works alongside you in the Forge editor. Ask it to add, revise, or explain any proposal. Every suggestion comes with a justification.</p>
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">⎔</span>Graphify knowledge graph</div>
@@ -1243,7 +1243,7 @@
         </div>
         <div class="step">
           <div class="step-num">4</div>
-          <div class="step-title">Brief</div>
+          <div class="step-title">Forge</div>
           <div class="step-desc">A collaborative workspace where you chat with Scholar to shape agents, behaviors, hooks, triggers, and skills before anything gets written.</div>
         </div>
         <div class="step">
