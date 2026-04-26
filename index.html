@@ -1327,19 +1327,22 @@
   </div>
 
   <script>
-    // Fetch latest release from GitHub API and wire up the download button.
+    // Fetch latest release from GitHub API and rewrite every download button's
+    // href to the direct .exe asset URL so a single click downloads the
+    // installer instead of opening the releases page.
     // Falls back to the releases page (already set as the default href) on failure.
     (async () => {
+      const downloadLinks = document.querySelectorAll('a[href*="tryfoundry-releases/releases/latest"]');
+      if (downloadLinks.length === 0) return;
       try {
         const res = await fetch('https://api.github.com/repos/try-foundry/tryfoundry-releases/releases/latest');
         if (!res.ok) return;
         const data = await res.json();
         const exe = (data.assets || []).find(a => a.name.endsWith('.exe') && !a.name.endsWith('.blockmap'));
         if (exe && exe.browser_download_url) {
-          const btn = document.getElementById('download-btn');
-          btn.href = exe.browser_download_url;
+          downloadLinks.forEach(link => { link.href = exe.browser_download_url; });
           const meta = document.getElementById('version-meta');
-          if (data.tag_name) meta.textContent = `${data.tag_name} · Free during beta · Windows 10/11 · Bring your own Anthropic API key`;
+          if (meta && data.tag_name) meta.textContent = `${data.tag_name} · Free during beta · Windows 10/11 · Bring your own Anthropic API key`;
         }
       } catch { /* keep fallback */ }
     })();
