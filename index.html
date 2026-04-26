@@ -185,7 +185,7 @@
       margin-bottom: 12px;
     }
 
-    /* Product showcase — large hero screenshot */
+    /* Product showcase */
     .showcase {
       max-width: 1100px;
       margin: 0 auto;
@@ -204,7 +204,6 @@
       width: 100%;
       height: auto;
     }
-    /* Placeholder shown when screenshot file doesn't exist yet */
     .showcase-frame .placeholder {
       aspect-ratio: 16 / 10;
       display: flex;
@@ -239,7 +238,7 @@
       line-height: 1.5;
     }
 
-    /* Inline screenshot frame — for in-line proof shots inside other sections */
+    /* Inline screenshot frame */
     .shot-inline {
       position: relative;
       border-radius: 10px;
@@ -320,7 +319,7 @@
       .scholar-intro .avatar { width: 120px; height: 120px; }
     }
 
-    /* The Pitch — three-step problem→answer→result */
+    /* The Pitch */
     .pitch {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -358,7 +357,7 @@
       .pitch { grid-template-columns: 1fr; }
     }
 
-    /* What gets built — artifact preview */
+    /* What gets built */
     .artifacts {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -508,7 +507,7 @@
     .path-solo li::before { background: #60a5fa; }
     .path-team li::before { background: #a78bfa; }
 
-    /* What's new in 1.0 — hero highlights */
+    /* What's new in 1.0 */
     .highlights {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -821,13 +820,13 @@
       <span class="btn-meta" id="version-meta">Free during beta · Windows 10/11 · Bring your own Anthropic API key</span>
     </section>
 
-    <!-- Product showcase — primary hero screenshot of the team page -->
+    <!-- Product showcase -->
     <section style="padding: 32px 0 16px;">
       <div class="showcase">
         <div class="showcase-frame">
           <img
             src="/screenshots/team-page-roster.png"
-            alt="Foundry's team page showing five generated agents — Code Reviewer, Security Guardian, Architecture Historian, Compliance Auditor, Test Runner — each rendered with its 2x2 taxonomy robot."
+            alt="Foundry's team page showing five generated agents: Code Reviewer, Security Guardian, Architecture Historian, Compliance Auditor, and Test Runner, each rendered with its 2x2 taxonomy robot."
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
           <div class="placeholder" style="display:none;">
@@ -848,31 +847,31 @@
       </div>
       <div class="showcase">
         <div class="forge-hero-shot">
-          <img src="/screenshots/forge-agents-bucket.png" alt="Forge editor — Agents bucket showing 5 generated agents with DETECTED and FOUNDRY badges" />
+          <img src="/screenshots/forge-agents-bucket.png" alt="Forge editor showing the Agents bucket with 5 generated agents and DETECTED and FOUNDRY badges" />
         </div>
         <div class="forge-section-grid">
           <div class="forge-shot">
-            <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket — 5 of 29 toggles enabled, Living-Doc Workflow expanded showing path-scope" />
+            <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket with 5 of 29 toggles enabled, Living-Doc Workflow expanded showing path-scope" />
             <div class="forge-shot-caption"><strong>Behaviors:</strong> 29 toggles. Enable globally, per-project, or scoped to specific file globs.</div>
           </div>
           <div class="forge-shot">
-            <img src="/screenshots/forge-standards-bucket.png" alt="Standards bucket — 3 compliance standards with DETECTED and FOUNDRY badges" />
+            <img src="/screenshots/forge-standards-bucket.png" alt="Standards bucket with 3 compliance standards and DETECTED and FOUNDRY badges" />
             <div class="forge-shot-caption"><strong>Standards:</strong> compliance frameworks stored as one file each, with full traceability.</div>
           </div>
           <div class="forge-shot">
-            <img src="/screenshots/forge-triggers-bucket.png" alt="Triggers bucket — 3 triggers: src-test-runner, pre-commit-security, post-build-audit" />
+            <img src="/screenshots/forge-triggers-bucket.png" alt="Triggers bucket with 3 triggers: src-test-runner, pre-commit-security, post-build-audit" />
             <div class="forge-shot-caption"><strong>Triggers:</strong> file watchers, git hooks, and npm scripts that run agents outside sessions.</div>
           </div>
           <div class="forge-shot">
-            <img src="/screenshots/forge-skills-bucket.png" alt="Skills bucket — 3 skills: graphify, migration-reviewer, stripe-helper" />
+            <img src="/screenshots/forge-skills-bucket.png" alt="Skills bucket with 3 skills: graphify, migration-reviewer, stripe-helper" />
             <div class="forge-shot-caption"><strong>Skills:</strong> slash commands and reusable workflows available to every agent.</div>
           </div>
           <div class="forge-shot">
-            <img src="/screenshots/forge-mcps-bucket.png" alt="MCPs bucket — 5 MCP servers: postgres, github, stripe, code-graph, memory-palace" />
+            <img src="/screenshots/forge-mcps-bucket.png" alt="MCPs bucket with 5 MCP servers: postgres, github, stripe, code-graph, memory-palace" />
             <div class="forge-shot-caption"><strong>MCPs:</strong> project-scoped server connections that extend what agents can access.</div>
           </div>
           <div class="forge-shot">
-            <img src="/screenshots/forge-domain-exclusions-bucket.png" alt="Domain Exclusions bucket — 5 deny patterns blocking rm -rf, DROP TABLE, .env writes" />
+            <img src="/screenshots/forge-domain-exclusions-bucket.png" alt="Domain Exclusions bucket with 5 deny patterns blocking rm -rf, DROP TABLE, .env writes" />
             <div class="forge-shot-caption"><strong>Domain Exclusions:</strong> tool-call patterns agents are permanently blocked from running.</div>
           </div>
         </div>
@@ -900,7 +899,7 @@
       </div>
     </section>
 
-    <!-- The pitch — problem → answer → result -->
+    <!-- The pitch -->
     <section style="padding-top: 48px;">
       <div class="pitch">
         <div class="pitch-card">
@@ -921,12 +920,12 @@
       </div>
     </section>
 
-    <!-- What you get when you run it — concrete artifacts -->
+    <!-- What you get when you run it -->
     <section id="what">
       <div class="section-title">
         <span class="section-eyebrow">What it builds</span>
         <h2>Real Claude Code config, generated for your project.</h2>
-        <p>Foundry's output isn't a black box. It's standard <code>.claude/</code> — every file is plain markdown or JSON you can read, edit, and version-control yourself.</p>
+        <p>Foundry's output isn't a black box. It's standard <code>.claude/</code>. Every file is plain markdown or JSON you can read, edit, and version-control yourself.</p>
       </div>
       <div class="artifacts">
         <div class="artifact-card">
@@ -934,9 +933,9 @@
           <img
             class="artifact-screenshot"
             src="/screenshots/forge-project-context.png"
-            alt="Project Context panel showing interview answers — developer experience, project clarity, communication style, caution level, and compliance frameworks"
+            alt="Project Context panel showing interview answers: developer experience, project clarity, communication style, caution level, and compliance frameworks"
           />
-          <div class="artifact-caption">Developer experience, project clarity, communication style, caution level — everything Scholar learned is stored in <code>.claude/foundry-context.json</code> and browseable any time.</div>
+          <div class="artifact-caption">Developer experience, project clarity, communication style, caution level. Everything Scholar learned is stored in <code>.claude/foundry-context.json</code> and browseable any time.</div>
         </div>
         <div class="artifact-card">
           <div class="artifact-header">.claude/{rules, standards, hooks}</div>
@@ -964,7 +963,7 @@
       <div class="section-title">
         <span class="section-eyebrow">Two audiences</span>
         <h2>One tool. Different setups for solo vs. team work.</h2>
-        <p>The wizard branches early. Both paths get the same engine — solo strips ceremony, team unlocks compliance and policy extraction.</p>
+        <p>The wizard branches early. Both paths get the same engine. Solo strips ceremony; team unlocks compliance and policy extraction.</p>
       </div>
       <div class="paths">
         <div class="path path-solo">
@@ -993,13 +992,13 @@
             <li>Standards &amp; policy extraction from your own docs</li>
             <li>Compliance frameworks: SOC 2, HIPAA, PCI-DSS, GDPR, ISO 27001</li>
             <li>Enforcement artifacts (permissions, rules, hooks) with full traceability</li>
-            <li>Portable team blueprints — share a config across projects</li>
+            <li>Portable team blueprints, shareable across projects</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- New in 1.0 — the headline release features -->
+    <!-- New in 1.0 -->
     <section id="whats-new">
       <div class="section-title">
         <span class="section-eyebrow">New in 1.0 beta</span>
@@ -1010,7 +1009,7 @@
         <div class="highlight">
           <span class="highlight-tag">★ Headline</span>
           <h3>Per-item baselines</h3>
-          <p>Every Foundry-managed item — agents, hooks, rules, standards — auto-captures its first-deployed state. One click to <strong>Reset to baseline</strong> if a Scholar revision goes sideways. One click to <strong>Update baseline</strong> when you settle on a new "good" state.</p>
+          <p>Every Foundry-managed item (agents, hooks, rules, standards) auto-captures its first-deployed state. One click to <strong>Reset to baseline</strong> if a Scholar revision goes sideways. One click to <strong>Update baseline</strong> when you settle on a new "good" state.</p>
           <div class="shot-inline">
             <img src="/screenshots/forge-baselines-menu.png" alt="Per-item kebab menu opened on a Foundry-managed hook, surfacing the Set baseline action"
                  onerror="this.parentElement.style.display='none';" />
@@ -1019,7 +1018,7 @@
         <div class="highlight">
           <span class="highlight-tag">★ Headline</span>
           <h3>Templates everywhere</h3>
-          <p>Every bucket — hooks, agents, triggers, skills, rules, standards — now has a <strong>Pick from library</strong> modal AND an inline pill row in the editor. Curated starter content for every common use case. Templates are starting points, not ceilings.</p>
+          <p>Every bucket (hooks, agents, triggers, skills, rules, standards) now has a <strong>Pick from library</strong> modal AND an inline pill row in the editor. Curated starter content for every common use case. Templates are starting points, not ceilings.</p>
           <div class="shot-inline">
             <img src="/screenshots/forge-hooks-pickfromlibrary.png" alt="Hooks bucket Pick from library modal with nine starter templates visible"
                  onerror="this.parentElement.style.display='none';" />
@@ -1037,12 +1036,12 @@
         <div class="highlight">
           <span class="highlight-tag">Quality</span>
           <h3>Reliable persistence</h3>
-          <p>Standards and rules now save correctly across both the wizard and the disk-mode editor. Hooks and triggers carry stable identities so baselines survive reload. The <code>.claude/</code> tree stays atomic on writes — no more half-written files on crash.</p>
+          <p>Standards and rules now save correctly across both the wizard and the disk-mode editor. Hooks and triggers carry stable identities so baselines survive reload. The <code>.claude/</code> tree stays atomic on writes, so no more half-written files on crash.</p>
         </div>
         <div class="highlight">
           <span class="highlight-tag">Quality</span>
           <h3>Scholar feedback transparency</h3>
-          <p>When generation fails, you see why — not a silent fallback. Mid-flow reasoning is browseable via a dedicated modal. Agent diffs now surface model, effort, and disallowed-tools changes that previously got applied invisibly.</p>
+          <p>When generation fails, you see why rather than getting a silent fallback. Mid-flow reasoning is browseable via a dedicated modal. Agent diffs now surface model, effort, and disallowed-tools changes that previously got applied invisibly.</p>
         </div>
         <div class="highlight">
           <span class="highlight-tag">Quality</span>
@@ -1056,7 +1055,7 @@
       <div class="section-title">
         <span class="section-eyebrow">Foundations</span>
         <h2>What's under the hood.</h2>
-        <p>The free building blocks — and the intelligence that ties them together.</p>
+        <p>The free building blocks and the intelligence that ties them together.</p>
       </div>
       <div class="features-grid">
         <div class="feature">
@@ -1065,7 +1064,7 @@
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">⎔</span>Graphify knowledge graph</div>
-          <p>A local semantic graph of your codebase, updated on every commit. Agents query it instead of reading raw files — ~71× fewer tokens. Free forever, runs entirely offline.</p>
+          <p>A local semantic graph of your codebase, updated on every commit. Agents query it instead of reading raw files, using ~71× fewer tokens. Free forever, runs entirely offline.</p>
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">❋</span>MemPalace memory</div>
@@ -1077,11 +1076,11 @@
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">◎</span>2×2 agent taxonomy</div>
-          <p>Every agent has a role (Specialist or Guardian) and a kind (Worker or Scholar). Consistent mental model across the roster — visible in every surface.</p>
+          <p>Every agent has a role (Specialist or Guardian) and a kind (Worker or Scholar). Consistent mental model across the roster, visible in every surface.</p>
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">▶</span>Open architecture</div>
-          <p>Everything Foundry generates is standard Claude Code configuration — plain <code>.md</code> files, hooks, <code>settings.json</code>. No lock-in. Nothing touches disk until you approve it.</p>
+          <p>Everything Foundry generates is standard Claude Code configuration: plain <code>.md</code> files, hooks, <code>settings.json</code>. No lock-in. Nothing touches disk until you approve it.</p>
         </div>
       </div>
     </section>
@@ -1096,7 +1095,7 @@
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-title">Analyze</div>
-          <div class="step-desc">Foundry scans your codebase locally via Graphify — no tokens spent, no data leaves your machine.</div>
+          <div class="step-desc">Foundry scans your codebase locally via Graphify. No tokens spent, no data leaves your machine.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -1106,12 +1105,12 @@
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-title">Interview</div>
-          <div class="step-desc">Scholar asks focused questions about your workflow and pain points — nothing generic.</div>
+          <div class="step-desc">Scholar asks focused questions about your workflow and pain points. Nothing generic.</div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-title">Brief</div>
-          <div class="step-desc">A collaborative workspace — chat with Scholar to shape agents, behaviors, hooks, triggers, and skills before anything gets written.</div>
+          <div class="step-desc">A collaborative workspace where you chat with Scholar to shape agents, behaviors, hooks, triggers, and skills before anything gets written.</div>
         </div>
         <div class="step">
           <div class="step-num">5</div>
@@ -1142,7 +1141,7 @@
       <div class="faq">
         <details class="faq-item">
           <summary>Do I need an API key? Does Foundry use my tokens?</summary>
-          <div class="faq-body">Yes. Foundry is BYOK (bring your own key). You pay Anthropic directly for Scholar's analysis and proposals during setup. Once your team is generated, the agents run as part of <em>your</em> normal Claude Code usage — Foundry doesn't insert itself into runtime. Codebase scanning is local (Graphify, no tokens). MemPalace is local. The token cost is the wizard interview itself, typically a few cents per setup.</div>
+          <div class="faq-body">Yes. Foundry is BYOK (bring your own key). You pay Anthropic directly for Scholar's analysis and proposals during setup. Once your team is generated, the agents run as part of <em>your</em> normal Claude Code usage. Foundry doesn't insert itself into runtime. Codebase scanning is local (Graphify, no tokens). MemPalace is local. The token cost is the wizard interview itself, typically a few cents per setup.</div>
         </details>
         <details class="faq-item">
           <summary>What happens to my code? Does any of it leave my machine?</summary>
@@ -1150,23 +1149,23 @@
         </details>
         <details class="faq-item">
           <summary>What if Scholar's proposals are wrong? Can I edit?</summary>
-          <div class="faq-body">Yes, at every stage. The Review step shows every agent, hook, rule, and standard before anything writes. You can edit, remove, or reject any of them. After install, the Forge editor lets you keep editing — and every Foundry-managed item has a baseline restore-point so you can <strong>Reset to baseline</strong> if a later edit goes sideways. None of it is locked-in: it's all standard <code>.claude/</code> config.</div>
+          <div class="faq-body">Yes, at every stage. The Review step shows every agent, hook, rule, and standard before anything writes. You can edit, remove, or reject any of them. After install, the Forge editor lets you keep editing, and every Foundry-managed item has a baseline restore-point so you can <strong>Reset to baseline</strong> if a later edit goes sideways. None of it is locked-in: it's all standard <code>.claude/</code> config.</div>
         </details>
         <details class="faq-item">
           <summary>Is this lock-in? What if I uninstall?</summary>
-          <div class="faq-body">No lock-in. Everything Foundry creates is standard Claude Code configuration — plain markdown agents, JSON hooks, rules files. Uninstalling Foundry doesn't break your team; the config keeps working. Foundry tracks what it created via a manifest at <code>.claude/.foundry-manifest.json</code> so the uninstall flow knows exactly what to remove and what was user-authored.</div>
+          <div class="faq-body">No lock-in. Everything Foundry creates is standard Claude Code configuration: plain markdown agents, JSON hooks, and rules files. Uninstalling Foundry doesn't break your team; the config keeps working. Foundry tracks what it created via a manifest at <code>.claude/.foundry-manifest.json</code> so the uninstall flow knows exactly what to remove and what was user-authored.</div>
         </details>
         <details class="faq-item">
           <summary>Why "1.0 beta" and not just "1.0"?</summary>
-          <div class="faq-body">The product is feature-complete and stable enough to call 1.0, but the paid-tier license-key system isn't ready yet — and we want to validate the launch flow with real users before charging anyone. Beta builds are time-gated to 30 days each, free during the beta period, with the next build available before the previous one expires. When license keys land, this becomes 1.0 stable.</div>
+          <div class="faq-body">The product is feature-complete and stable enough to call 1.0, but the paid-tier license-key system isn't ready yet, and we want to validate the launch flow with real users before charging anyone. Beta builds are time-gated to 30 days each, free during the beta period, with the next build available before the previous one expires. When license keys land, this becomes 1.0 stable.</div>
         </details>
         <details class="faq-item">
           <summary>Mac? Linux?</summary>
-          <div class="faq-body">Windows-first. Linux is a stretch goal we hope to ship soon after launch (AppImage target). Mac is post-1.0 — Apple code-signing and notarization adds enough overhead that we're punting it until the Windows release proves out.</div>
+          <div class="faq-body">Windows-first. Linux is a stretch goal we hope to ship soon after launch (AppImage target). Mac is post-1.0. Apple code-signing and notarization add enough overhead that we're punting it until the Windows release proves out.</div>
         </details>
         <details class="faq-item">
           <summary>Is the "Windows protected your PC" warning safe?</summary>
-          <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source — every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
+          <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source. Every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
         </details>
       </div>
     </section>
@@ -1177,7 +1176,7 @@
         <p>
           Free to download and use during the beta period. Each build is time-gated to 30 days, with the next one available before the previous one expires.
           If you find Foundry useful, <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">donations on Ko-fi</a>
-          help fund development — and beta donors will get credit toward the purchase price at the eventual 1.0 stable launch.
+          help fund development, and beta donors will get credit toward the purchase price at the eventual 1.0 stable launch.
         </p>
         <div style="margin-top:22px;">
           <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
