@@ -904,7 +904,7 @@
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
       </p>
       <div class="cta-row" id="download">
-        <a id="download-btn" href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+        <a id="download-btn" href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Download Foundry 1.0 beta</span>
         </a>
@@ -972,7 +972,7 @@
         </div>
       </div>
       <div style="text-align:center; padding: 32px 0 0;">
-        <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:14px; padding:11px 20px;">
+        <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:14px; padding:11px 20px;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Foundry 1.0 beta
         </a>
@@ -1253,7 +1253,7 @@
         </div>
       </div>
       <div style="text-align:center; padding: 36px 0 0;">
-        <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+        <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Foundry 1.0 beta
         </a>
@@ -1294,7 +1294,7 @@
         </details>
         <details class="faq-item">
           <summary>Is the "Windows protected your PC" warning safe?</summary>
-          <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source. Every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
+          <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source. Every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/try-foundry/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
         </details>
       </div>
     </section>
@@ -1308,7 +1308,7 @@
           help fund development, and beta donors will get credit toward the purchase price at the eventual 1.0 stable launch.
         </p>
         <div style="margin-top:22px;">
-          <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+          <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Foundry 1.0 beta
           </a>
@@ -1331,7 +1331,7 @@
     // Falls back to the releases page (already set as the default href) on failure.
     (async () => {
       try {
-        const res = await fetch('https://api.github.com/repos/DrewBatcheller/tryfoundry-releases/releases/latest');
+        const res = await fetch('https://api.github.com/repos/try-foundry/tryfoundry-releases/releases/latest');
         if (!res.ok) return;
         const data = await res.json();
         const exe = (data.assets || []).find(a => a.name.endsWith('.exe') && !a.name.endsWith('.blockmap'));

@@ -13,7 +13,7 @@ Deployed to Cloudflare Pages on push to `main`. Single static `index.html`, no b
 
 Edit `index.html`, commit, push. Cloudflare deploys in ~20s.
 
-The download button fetches the latest release from `DrewBatcheller/tryfoundry-releases` via the GitHub API on page load. The fallback URL (if the API call fails) points to the releases index page.
+The download button fetches the latest release from `try-foundry/tryfoundry-releases` via the GitHub API on page load. The fallback URL (if the API call fails) points to the releases index page.
 
 ## Copy source
 
