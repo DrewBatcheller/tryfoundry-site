@@ -235,30 +235,55 @@
     }
     .release-shot img { width: 100%; height: auto; display: block; }
 
-    /* Empty state */
-    .empty-state {
-      padding: 80px 24px 120px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px dashed rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-    }
-    .empty-state .icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-      opacity: 0.5;
-    }
-    .empty-state h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #e5e7eb;
-      margin-bottom: 8px;
-    }
-    .empty-state p {
+    /* Upcoming features list */
+    .upcoming-lead {
       font-size: 13px;
-      color: #6b7280;
-      max-width: 380px;
-      margin: 0 auto;
+      color: #9ca3af;
+      max-width: 640px;
+      margin-bottom: 24px;
+      line-height: 1.65;
+    }
+    .upcoming-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 80px;
+    }
+    .upcoming-item {
+      display: flex;
+      gap: 18px;
+      padding: 22px 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      transition: border-color 0.15s;
+    }
+    .upcoming-item:hover { border-color: rgba(139, 92, 246, 0.18); }
+    .upcoming-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.12);
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: ui-monospace, monospace;
+    }
+    .upcoming-content { flex: 1; min-width: 0; }
+    .upcoming-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -0.005em;
+    }
+    .upcoming-desc {
+      font-size: 13px;
+      color: #9ca3af;
       line-height: 1.6;
     }
 
@@ -308,7 +333,7 @@
 
     <div class="tab-bar">
       <button class="tab active" data-tab="releases">Release Notes <span class="tab-count">3</span></button>
-      <button class="tab" data-tab="upcoming">Upcoming Features <span class="tab-count">0</span></button>
+      <button class="tab" data-tab="upcoming">Upcoming Features <span class="tab-count">5</span></button>
     </div>
 
     <!-- ── Release Notes tab ───────────────────────────────────────────────── -->
@@ -396,10 +421,49 @@
 
     <!-- ── Upcoming Features tab ──────────────────────────────────────────── -->
     <section class="tab-panel" data-panel="upcoming">
-      <div class="empty-state">
-        <div class="icon">🛠</div>
-        <h3>Nothing locked in yet</h3>
-        <p>This page lists features once they've been committed for an upcoming release. Check back soon, or follow Foundry on GitHub for early signals.</p>
+      <p class="upcoming-lead">Features committed for upcoming releases. No hard ETAs — they ship when they're ready and the next release notes will tell you which ones landed.</p>
+      <div class="upcoming-list">
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">1</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Pause / resume any installed item</div>
+            <div class="upcoming-desc">Temporarily disable a hook, rule, or behavior without deleting it. Resume restores it exactly as it was. Useful when you want to turn something off for a debugging session, then put it back.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">2</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Cross-project template library</div>
+            <div class="upcoming-desc">Save any baseline as a reusable template. Future projects — and your other repos — pick it up automatically. Patterns you've already perfected, ready to drop into the next codebase without re-deriving them.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">3</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Multi-step undo per item</div>
+            <div class="upcoming-desc">A persistent N-deep undo stack on every Foundry-managed item, in addition to the single-snapshot baseline. Walk back through Scholar revisions one at a time instead of jumping all the way to baseline.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">4</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Baseline diff view</div>
+            <div class="upcoming-desc">When a live item diverges from its baseline, see exactly what changed inline. No more guessing whether to reset, update, or keep iterating — the diff tells you.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">5</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Per-agent domain exclusions</div>
+            <div class="upcoming-desc">Each agent gets its own "stay out of these paths" list, prefilled from the project-wide exclusions and overridable. Lets you have a research agent that ignores <code>vendor/</code> while a build agent doesn't.</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
