@@ -730,6 +730,105 @@
     }
     .faq-item .faq-body code { font-size: 13px; }
 
+    /* Release notes */
+    .release-notes { display: flex; flex-direction: column; gap: 8px; }
+    .release-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .release-item[open] { border-color: rgba(139, 92, 246, 0.2); }
+    .release-item summary {
+      padding: 16px 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      list-style: none;
+      transition: background 0.15s;
+    }
+    .release-item summary:hover { background: rgba(255, 255, 255, 0.02); }
+    .release-item summary::-webkit-details-marker { display: none; }
+    .release-item summary::after {
+      content: '+';
+      font-size: 18px;
+      font-weight: 300;
+      color: #a78bfa;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .release-item[open] summary::after { transform: rotate(45deg); }
+    .release-version {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: ui-monospace, monospace;
+      flex-shrink: 0;
+    }
+    .release-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e5e7eb;
+      flex: 1;
+    }
+    .release-date {
+      font-size: 12px;
+      color: #6b7280;
+      flex-shrink: 0;
+    }
+    .release-body {
+      padding: 4px 22px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .release-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin: 18px 0 8px;
+    }
+    .release-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .release-body ul li {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.55;
+      padding-left: 14px;
+      position: relative;
+    }
+    .release-body ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: #6b7280;
+    }
+    .release-body ul li strong { color: #d1d5db; font-weight: 600; }
+    .release-shots {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .release-shot {
+      flex: 1;
+      min-width: 220px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .release-shot img { width: 100%; height: auto; display: block; }
+
     /* Beta note */
     .beta-note {
       padding: 32px;
@@ -792,7 +891,7 @@
       <div class="nav-links">
         <a href="#what">What you get</a>
         <a href="#audiences">Who it's for</a>
-        <a href="#whats-new">New in 1.0</a>
+        <a href="#whats-new">Release Notes</a>
         <a href="#faq">FAQ</a>
         <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">GitHub</a>
         <a href="#download" class="primary">Download</a>
@@ -998,56 +1097,91 @@
       </div>
     </section>
 
-    <!-- New in 1.0 -->
+    <!-- Release notes -->
     <section id="whats-new">
       <div class="section-title">
-        <span class="section-eyebrow">New in 1.0 beta</span>
-        <h2>The build the launch needed.</h2>
-        <p>The 1.0 beta closes the durability gaps. Everything you build now persists, every Foundry-managed item is reset-able, and every bucket has one-click starter templates.</p>
+        <span class="section-eyebrow">Changelog</span>
+        <h2>Release notes.</h2>
+        <p>What shipped, version by version.</p>
       </div>
-      <div class="highlights">
-        <div class="highlight">
-          <span class="highlight-tag">★ Headline</span>
-          <h3>Per-item baselines</h3>
-          <p>Every Foundry-managed item (agents, hooks, rules, standards) auto-captures its first-deployed state. One click to <strong>Reset to baseline</strong> if a Scholar revision goes sideways. One click to <strong>Update baseline</strong> when you settle on a new "good" state.</p>
-          <div class="shot-inline">
-            <img src="/screenshots/forge-baselines-menu.png" alt="Per-item kebab menu opened on a Foundry-managed hook, surfacing the Set baseline action"
-                 onerror="this.parentElement.style.display='none';" />
+      <div class="release-notes">
+
+        <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.0.0-beta</span>
+            <span class="release-title">Baselines, templates, and path-scoped behaviors</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Headline Features</div>
+            <ul>
+              <li><strong>Per-item baselines.</strong> Every Foundry-managed item auto-captures its first deployed state. One click to reset if a Scholar revision goes sideways; one click to update when you settle on a new good state.</li>
+              <li><strong>Templates everywhere.</strong> Every bucket (hooks, agents, triggers, skills, rules, standards) now has a Pick from library modal with curated starters, plus an inline pill row in each editor for fast inserts.</li>
+              <li><strong>Path-scoped behaviors.</strong> All 29 behavior toggles support file glob scoping. A "Write tests in TDD style" rule fires only when Claude touches test files, keeping prompt payloads lean for focused work.</li>
+            </ul>
+            <div class="release-shots">
+              <div class="release-shot">
+                <img src="/screenshots/forge-baselines-menu.png" alt="Kebab menu on a Foundry-managed hook showing Set baseline and Reset to baseline actions"
+                     onerror="this.parentElement.style.display='none';" />
+              </div>
+              <div class="release-shot">
+                <img src="/screenshots/forge-hooks-pickfromlibrary.png" alt="Pick from library modal in the hooks bucket showing nine curated starter templates"
+                     onerror="this.parentElement.style.display='none';" />
+              </div>
+            </div>
+            <div class="release-category">Quality and Reliability</div>
+            <ul>
+              <li><strong>Reliable persistence.</strong> Standards and rules save correctly across both the wizard and disk-mode editor.</li>
+              <li><strong>Stable identities.</strong> Hooks and triggers carry stable IDs so baselines survive a reload.</li>
+              <li><strong>Atomic writes.</strong> The <code>.claude/</code> tree writes atomically; no more half-written files on crash.</li>
+              <li><strong>Failure transparency.</strong> When Scholar generation fails, you see why instead of a silent fallback.</li>
+              <li><strong>Browseable reasoning.</strong> Mid-flow Scholar reasoning is accessible via a dedicated modal.</li>
+              <li><strong>Better diffs.</strong> Agent diffs now surface model, effort, and disallowed-tools changes that previously applied invisibly.</li>
+            </ul>
           </div>
-        </div>
-        <div class="highlight">
-          <span class="highlight-tag">★ Headline</span>
-          <h3>Templates everywhere</h3>
-          <p>Every bucket (hooks, agents, triggers, skills, rules, standards) now has a <strong>Pick from library</strong> modal AND an inline pill row in the editor. Curated starter content for every common use case. Templates are starting points, not ceilings.</p>
-          <div class="shot-inline">
-            <img src="/screenshots/forge-hooks-pickfromlibrary.png" alt="Hooks bucket Pick from library modal with nine starter templates visible"
-                 onerror="this.parentElement.style.display='none';" />
+        </details>
+
+        <details class="release-item">
+          <summary>
+            <span class="release-version">v0.9.0</span>
+            <span class="release-title">Forge editor, 2x2 taxonomy, and interview overhaul</span>
+            <span class="release-date">March 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">New</div>
+            <ul>
+              <li><strong>Forge editor.</strong> A persistent dashboard for modifying your team config after initial setup. Every bucket editable in one place: hooks, agents, behaviors, triggers, skills, MCPs, and project context.</li>
+              <li><strong>2x2 agent taxonomy.</strong> Agents now carry a role (Specialist or Guardian) and a kind (Worker or Scholar). Shown on every roster card and in every generated file.</li>
+              <li><strong>Interview overhaul.</strong> The onboarding interview is now a real conversation: 8 to 12 focused questions, developer-skill pills, and a natural back-and-forth instead of a form.</li>
+              <li><strong>Domain exclusions.</strong> Per-domain rules for where agents operate. Keeps test-only agents away from production paths.</li>
+            </ul>
+            <div class="release-category">Fixes</div>
+            <ul>
+              <li>MemPalace bridge deduplication removed dev console error spam.</li>
+              <li>Wizard post-creation handoff state corrected after navigation changes.</li>
+              <li>Tooling detection in the scope step now reports specific package names.</li>
+            </ul>
           </div>
-        </div>
-        <div class="highlight">
-          <span class="highlight-tag">★ Headline</span>
-          <h3>Path-scoped behaviors</h3>
-          <p>Behavior rules now target file globs. "Write tests in TDD style" fires only when Claude touches test files. "Validate API contracts" fires only on API routes. Pick from 29 toggles. Nothing is pre-enabled, and every toggle is scope-able.</p>
-          <div class="shot-inline">
-            <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket showing 5 of 29 toggles enabled, with Living-Doc Workflow expanded"
-                 onerror="this.parentElement.style.display='none';" />
+        </details>
+
+        <details class="release-item">
+          <summary>
+            <span class="release-version">v0.8.0</span>
+            <span class="release-title">Initial release: wizard, Graphify, and first agents</span>
+            <span class="release-date">January 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">First Release</div>
+            <ul>
+              <li><strong>Six-step wizard.</strong> Analyze, Scope, Interview, Brief, Approve, Install. From empty repo to running team in one pass.</li>
+              <li><strong>Graphify integration.</strong> Local codebase graph built on every commit. Agents query it instead of reading raw files, around 71x fewer tokens for structural questions.</li>
+              <li><strong>MemPalace memory.</strong> Decisions and conventions accumulate across sessions. The Historian files new knowledge; every agent can search it.</li>
+              <li><strong>Behavior toggles.</strong> Initial set of 20 toggles covering commit hygiene, planning gates, documentation checks, and standing-order controls.</li>
+              <li><strong>First agent roster.</strong> Code Reviewer, Security Guardian, Architecture Historian, Compliance Auditor, and Test Runner. All generated from your interview with role and kind already set.</li>
+            </ul>
           </div>
-        </div>
-        <div class="highlight">
-          <span class="highlight-tag">Quality</span>
-          <h3>Reliable persistence</h3>
-          <p>Standards and rules now save correctly across both the wizard and the disk-mode editor. Hooks and triggers carry stable identities so baselines survive reload. The <code>.claude/</code> tree stays atomic on writes, so no more half-written files on crash.</p>
-        </div>
-        <div class="highlight">
-          <span class="highlight-tag">Quality</span>
-          <h3>Scholar feedback transparency</h3>
-          <p>When generation fails, you see why rather than getting a silent fallback. Mid-flow reasoning is browseable via a dedicated modal. Agent diffs now surface model, effort, and disallowed-tools changes that previously got applied invisibly.</p>
-        </div>
-        <div class="highlight">
-          <span class="highlight-tag">Quality</span>
-          <h3>Less context bloat</h3>
-          <p>Behavior rules target file globs, so they only fire when relevant. A "Write tests in TDD style" rule stays silent until Claude touches test files. Dramatically smaller prompt payloads for focused work.</p>
-        </div>
+        </details>
+
       </div>
     </section>
 
