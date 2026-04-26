@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Foundry builds AI agent teams for Claude Code. Scholar AI analyzes your project, interviews you about your workflow, and proposes a custom team — with starter templates, restore-points, and full traceability. Free through the 1.0 beta." />
-  <meta property="og:title" content="Foundry — AI Agent Teams for Claude Code" />
+  <meta name="description" content="Foundry builds AI agent teams for Claude Code. Scholar AI analyzes your project, interviews you about your workflow, and proposes a custom team, with starter templates, restore-points, and full traceability. Free through the 1.0 beta." />
+  <meta property="og:title" content="Foundry: AI Agent Teams for Claude Code" />
   <meta property="og:description" content="Scholar AI builds you a custom team for Claude Code. Templates everywhere, restore-points on every item, full traceability. 1.0 beta out now." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tryfoundry.dev" />
-  <title>Foundry — AI Agent Teams for Claude Code</title>
+  <title>Foundry: AI Agent Teams for Claude Code</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A8%3C/text%3E%3C/svg%3E" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -263,7 +263,7 @@
       font-family: "SF Mono", Menlo, Consolas, monospace;
     }
 
-    /* Scholar intro — Dean as the AI persona */
+    /* Scholar intro */
     .scholar-intro {
       display: flex;
       align-items: center;
@@ -805,7 +805,7 @@
       <h1>Stop hand-rolling Claude Code agents. <span class="accent">Let Scholar build the team.</span></h1>
       <p class="hero-sub">
         Foundry interviews you, analyzes your codebase, then opens a collaborative workspace where
-        Scholar — Foundry's AI — helps you configure everything: agents, behaviors, hooks, triggers,
+        Scholar, Foundry's built-in AI, helps you configure everything: agents, behaviors, hooks, triggers,
         skills, and MCP connections. One path for solo developers, another for teams with standards
         and compliance needs.
       </p>
@@ -835,7 +835,7 @@
             <code>/screenshots/team-page-roster.png</code>
           </div>
         </div>
-        <p class="showcase-caption">Your team after Foundry runs. Five agents matched to a real billing service — security, review, history, compliance, tests. Every card pulls its 2×2 robot from role + kind.</p>
+        <p class="showcase-caption">Your team after Foundry runs. Five agents matched to a real billing service: security, review, history, compliance, and tests. Every card pulls its 2×2 robot from role + kind.</p>
       </div>
     </section>
 
@@ -844,7 +844,7 @@
       <div class="section-title" style="margin-bottom: 24px;">
         <span class="section-eyebrow">Forge</span>
         <h2>Every surface. One editor.</h2>
-        <p>After Scholar builds your team, Forge is where you manage it — agents, hooks, rules, standards, behaviors, triggers, MCPs, skills, all live-synced to your <code>.claude/</code> directory.</p>
+        <p>After Scholar builds your team, Forge is where you manage it: agents, hooks, rules, standards, behaviors, triggers, MCPs, skills, all live-synced to your <code>.claude/</code> directory.</p>
       </div>
       <div class="showcase">
         <div class="forge-hero-shot">
@@ -853,42 +853,49 @@
         <div class="forge-section-grid">
           <div class="forge-shot">
             <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket — 5 of 29 toggles enabled, Living-Doc Workflow expanded showing path-scope" />
-            <div class="forge-shot-caption"><strong>Behaviors</strong> — 29 toggles. Enable globally, per-project, or scoped to specific file globs.</div>
+            <div class="forge-shot-caption"><strong>Behaviors:</strong> 29 toggles. Enable globally, per-project, or scoped to specific file globs.</div>
           </div>
           <div class="forge-shot">
             <img src="/screenshots/forge-standards-bucket.png" alt="Standards bucket — 3 compliance standards with DETECTED and FOUNDRY badges" />
-            <div class="forge-shot-caption"><strong>Standards</strong> — compliance frameworks stored as one file each with full traceability.</div>
+            <div class="forge-shot-caption"><strong>Standards:</strong> compliance frameworks stored as one file each, with full traceability.</div>
           </div>
           <div class="forge-shot">
             <img src="/screenshots/forge-triggers-bucket.png" alt="Triggers bucket — 3 triggers: src-test-runner, pre-commit-security, post-build-audit" />
-            <div class="forge-shot-caption"><strong>Triggers</strong> — file watchers, git hooks, npm scripts that run agents outside sessions.</div>
+            <div class="forge-shot-caption"><strong>Triggers:</strong> file watchers, git hooks, and npm scripts that run agents outside sessions.</div>
           </div>
           <div class="forge-shot">
             <img src="/screenshots/forge-skills-bucket.png" alt="Skills bucket — 3 skills: graphify, migration-reviewer, stripe-helper" />
-            <div class="forge-shot-caption"><strong>Skills</strong> — slash commands and reusable workflows available to every agent.</div>
+            <div class="forge-shot-caption"><strong>Skills:</strong> slash commands and reusable workflows available to every agent.</div>
           </div>
           <div class="forge-shot">
             <img src="/screenshots/forge-mcps-bucket.png" alt="MCPs bucket — 5 MCP servers: postgres, github, stripe, code-graph, memory-palace" />
-            <div class="forge-shot-caption"><strong>MCPs</strong> — project-scoped server connections that extend what agents can access.</div>
+            <div class="forge-shot-caption"><strong>MCPs:</strong> project-scoped server connections that extend what agents can access.</div>
           </div>
           <div class="forge-shot">
             <img src="/screenshots/forge-domain-exclusions-bucket.png" alt="Domain Exclusions bucket — 5 deny patterns blocking rm -rf, DROP TABLE, .env writes" />
-            <div class="forge-shot-caption"><strong>Domain Exclusions</strong> — tool-call patterns agents are permanently blocked from running.</div>
+            <div class="forge-shot-caption"><strong>Domain Exclusions:</strong> tool-call patterns agents are permanently blocked from running.</div>
           </div>
         </div>
       </div>
+      <div style="text-align:center; padding: 32px 0 0;">
+        <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:14px; padding:11px 20px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Foundry 1.0 beta
+        </a>
+        <div style="margin-top:9px; font-size:12px; color:#6b7280;">Free during beta · Windows 10/11 · Bring your own Anthropic API key</div>
+      </div>
     </section>
 
-    <!-- Meet the Scholar — Dean as the AI narrator/persona -->
+    <!-- Meet Scholar -->
     <section style="padding: 24px 0 0;">
       <div class="scholar-intro">
         <div class="avatar">
-          <img src="/robots/dean.png" alt="Dean — Foundry's Scholar AI" loading="lazy" />
+          <img src="/robots/dean.png" alt="Foundry Scholar AI" loading="lazy" />
         </div>
         <div class="scholar-intro-text">
           <div class="label">Meet your Scholar</div>
-          <h3>Dean reads your project, then proposes the team.</h3>
-          <p>Foundry's Scholar AI doesn't apply templates — he interviews you about your codebase, scans your repo locally via Graphify, and writes custom agent prompts matched to how <em>your</em> project actually works. He shows his reasoning at every step.</p>
+          <h3>Scholar reads your project, then proposes the team.</h3>
+          <p>Foundry's Scholar AI skips templates entirely. It interviews you about your codebase, scans your repo locally via Graphify, and writes custom agent prompts matched to how <em>your</em> project actually works. Every suggestion comes with visible reasoning.</p>
         </div>
       </div>
     </section>
@@ -899,17 +906,17 @@
         <div class="pitch-card">
           <div class="pitch-eyebrow">The problem</div>
           <h3>Configuring Claude Code is tedious.</h3>
-          <p>Hand-writing agent <code>.md</code> files, behavior rules, hook scripts, standing orders — hours of YAML, copy-paste, and trial-and-error before you've shipped anything.</p>
+          <p>Hand-writing agent <code>.md</code> files, behavior rules, hook scripts, and standing orders takes hours of YAML, copy-paste, and trial-and-error before you've shipped anything.</p>
         </div>
         <div class="pitch-card">
           <div class="pitch-eyebrow">The answer</div>
           <h3>Scholar AI designs the team.</h3>
-          <p>Foundry analyzes your codebase locally via Graphify, interviews you for ten minutes, and proposes a complete config — agents, hooks, rules, standards — explaining every choice.</p>
+          <p>Foundry analyzes your codebase locally via Graphify, interviews you for ten minutes, and proposes a complete config: agents, hooks, rules, and standards, explaining every choice.</p>
         </div>
         <div class="pitch-card">
           <div class="pitch-eyebrow">The result</div>
           <h3>You approve. It ships.</h3>
-          <p>Nothing touches <code>.claude/</code> until you say so. Every artifact has a restore-point. The whole config is plain Claude Code — edit it forever, in or out of Foundry.</p>
+          <p>Nothing touches <code>.claude/</code> until you say so. Every artifact has a restore-point. The whole config is plain Claude Code. Edit it forever, inside or outside of Foundry.</p>
         </div>
       </div>
     </section>
@@ -966,7 +973,7 @@
           </div>
           <h3>Independent developer</h3>
           <div class="path-for">Personal projects · Freelance · Hobby · Learning</div>
-          <p>A streamlined setup that stays out of your way. Scholar asks about your personal workflow and pain points, then proposes a lean team matched to how you actually work — and explains every choice.</p>
+          <p>A streamlined setup that stays out of your way. Scholar asks about your personal workflow and pain points, then proposes a lean team matched to how you actually work and explains every choice.</p>
           <ul>
             <li>Streamlined path, no compliance overhead</li>
             <li>Interview focused on your velocity and common mistakes</li>
@@ -1021,7 +1028,7 @@
         <div class="highlight">
           <span class="highlight-tag">★ Headline</span>
           <h3>Path-scoped behaviors</h3>
-          <p>Behavior rules now target file globs. "Write tests in TDD style" fires only when Claude touches test files. "Validate API contracts" fires only on API routes. Pick from 29 toggles — nothing is pre-enabled, and every toggle is scope-able.</p>
+          <p>Behavior rules now target file globs. "Write tests in TDD style" fires only when Claude touches test files. "Validate API contracts" fires only on API routes. Pick from 29 toggles. Nothing is pre-enabled, and every toggle is scope-able.</p>
           <div class="shot-inline">
             <img src="/screenshots/forge-behaviors-bucket.png" alt="Behaviors bucket showing 5 of 29 toggles enabled, with Living-Doc Workflow expanded"
                  onerror="this.parentElement.style.display='none';" />
@@ -1039,8 +1046,8 @@
         </div>
         <div class="highlight">
           <span class="highlight-tag">Quality</span>
-          <h3>Path-scoped behaviors</h3>
-          <p>Behavior rules can now target file globs. A "Write tests in TDD style" rule fires only when Claude touches test files; a "Validate API contracts" rule fires only on API routes. Dramatically less context bloat for behaviors you only want active sometimes.</p>
+          <h3>Less context bloat</h3>
+          <p>Behavior rules target file globs, so they only fire when relevant. A "Write tests in TDD style" rule stays silent until Claude touches test files. Dramatically smaller prompt payloads for focused work.</p>
         </div>
       </div>
     </section>
@@ -1053,7 +1060,7 @@
       </div>
       <div class="features-grid">
         <div class="feature">
-          <div class="feature-title"><span class="icon">◆</span>Scholar — your AI configurator</div>
+          <div class="feature-title"><span class="icon">◆</span>Scholar, your AI configurator</div>
           <p>Scholar reads your code, conducts the interview, then works alongside you in the Brief workspace. Ask it to add, revise, or explain any proposal. Every suggestion comes with a justification.</p>
         </div>
         <div class="feature">
@@ -1066,7 +1073,7 @@
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">▣</span>Behavior presets &amp; toggles</div>
-          <p>Plan-before-acting, conventional commits, doc-currency checks, standing-order gates. Each toggle includes an explanation and example so you know exactly what you're enabling — presets bundle sensible defaults, per-toggle overrides let you fine-tune.</p>
+          <p>Plan-before-acting, conventional commits, doc-currency checks, standing-order gates. Each toggle includes an explanation and example so you know exactly what you're enabling. Presets bundle sensible defaults; per-toggle overrides let you fine-tune.</p>
         </div>
         <div class="feature">
           <div class="feature-title"><span class="icon">◎</span>2×2 agent taxonomy</div>
@@ -1117,6 +1124,13 @@
           <div class="step-desc">Foundry writes your team configuration. Every artifact gets a baseline restore-point automatically.</div>
         </div>
       </div>
+      <div style="text-align:center; padding: 36px 0 0;">
+        <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Foundry 1.0 beta
+        </a>
+        <div style="margin-top:9px; font-size:12px; color:#6b7280;">Free during beta · Windows 10/11 · Bring your own Anthropic API key</div>
+      </div>
     </section>
 
     <section id="faq">
@@ -1128,11 +1142,11 @@
       <div class="faq">
         <details class="faq-item">
           <summary>Do I need an API key? Does Foundry use my tokens?</summary>
-          <div class="faq-body">Yes — Foundry is BYOK (bring your own key). You pay Anthropic directly for the Scholar's analysis and proposals during setup. Once your team is generated, the agents run as part of <em>your</em> normal Claude Code usage — Foundry doesn't insert itself into runtime. Codebase scanning is local (Graphify, no tokens). MemPalace is local. The token cost is the wizard interview itself, typically a few cents per setup.</div>
+          <div class="faq-body">Yes. Foundry is BYOK (bring your own key). You pay Anthropic directly for Scholar's analysis and proposals during setup. Once your team is generated, the agents run as part of <em>your</em> normal Claude Code usage — Foundry doesn't insert itself into runtime. Codebase scanning is local (Graphify, no tokens). MemPalace is local. The token cost is the wizard interview itself, typically a few cents per setup.</div>
         </details>
         <details class="faq-item">
           <summary>What happens to my code? Does any of it leave my machine?</summary>
-          <div class="faq-body">Your source files stay local. Graphify builds a semantic index entirely on your machine. The Scholar reads <em>summaries</em> and <em>references</em> from that index, plus whatever you tell it in the interview. It never uploads your code wholesale. The only thing crossing the network is the structured context Scholar sends to the Claude API — and that data goes to Anthropic, not to us.</div>
+          <div class="faq-body">Your source files stay local. Graphify builds a semantic index entirely on your machine. Scholar reads <em>summaries</em> and <em>references</em> from that index, plus whatever you tell it in the interview. It never uploads your code wholesale. The only thing crossing the network is the structured context Scholar sends to the Claude API, and that data goes to Anthropic, not to us.</div>
         </details>
         <details class="faq-item">
           <summary>What if Scholar's proposals are wrong? Can I edit?</summary>
@@ -1151,7 +1165,7 @@
           <div class="faq-body">Windows-first. Linux is a stretch goal we hope to ship soon after launch (AppImage target). Mac is post-1.0 — Apple code-signing and notarization adds enough overhead that we're punting it until the Windows release proves out.</div>
         </details>
         <details class="faq-item">
-          <summary>"Windows protected your PC" — is this safe?</summary>
+          <summary>Is the "Windows protected your PC" warning safe?</summary>
           <div class="faq-body">It's safe. Foundry isn't code-signed yet (Authenticode certificates are on the roadmap), so Windows SmartScreen warns on first install. Click <em>More info</em> → <em>Run anyway</em>. The installer is open-source — every released build matches a public commit on <a href="https://github.com/DrewBatcheller/claude-team-builder" target="_blank" rel="noopener">GitHub</a>, and binary release artifacts live at <a href="https://github.com/DrewBatcheller/tryfoundry-releases" target="_blank" rel="noopener">tryfoundry-releases</a>.</div>
         </details>
       </div>
@@ -1159,12 +1173,19 @@
 
     <div class="container">
       <section class="beta-note">
-        <h3>1.0 beta is free — and stays free during the beta.</h3>
+        <h3>1.0 beta is free, and stays free throughout the beta.</h3>
         <p>
           Free to download and use during the beta period. Each build is time-gated to 30 days, with the next one available before the previous one expires.
           If you find Foundry useful, <a href="https://ko-fi.com/tryfoundry" target="_blank" rel="noopener">donations on Ko-fi</a>
           help fund development — and beta donors will get credit toward the purchase price at the eventual 1.0 stable launch.
         </p>
+        <div style="margin-top:22px;">
+          <a href="https://github.com/DrewBatcheller/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Foundry 1.0 beta
+          </a>
+          <div style="margin-top:9px; font-size:12px; color:#6b7280;">Free during beta · Windows 10/11 · Bring your own Anthropic API key</div>
+        </div>
       </section>
     </div>
 
