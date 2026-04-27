@@ -896,7 +896,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.1.0 Beta · Launching Now</span>
+      <span class="beta-badge">v1.1.0 Beta · Live</span>
       <h1>Your project shapes your <span class="accent">Claude Code setup.</span></h1>
       <p class="hero-sub">
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
@@ -928,6 +928,148 @@
           </div>
         </div>
         <p class="showcase-caption">Your team after Foundry runs. Five agents matched to a real billing service: security, review, history, compliance, and tests. Every card pulls its 2×2 robot from role + kind.</p>
+      </div>
+    </section>
+
+    <!-- Release notes -->
+    <section id="whats-new">
+      <div class="section-title">
+        <span class="section-eyebrow">Changelog</span>
+        <h2>Latest releases.</h2>
+        <p>The three most recent. <a href="/build-notes.html" style="color:#a78bfa; text-decoration:underline;">See full build notes →</a></p>
+      </div>
+      <div class="release-notes">
+
+        <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.1.0-beta</span>
+            <span class="release-title">Cost-aware hooks, install-time linting, zero-hook fresh installs</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">New</div>
+            <ul>
+              <li><strong>Firing-rate badges.</strong> Every hook starter template carries a cost-profile badge (<code>session-start</code>, <code>per-tool-call</code>, etc.) so you see how chatty a hook is before installing.</li>
+              <li><strong>Static-text linter.</strong> When a <code>PreToolUse</code> or <code>PostToolUse</code> hook just echoes constant text, the editor surfaces a soft-warn banner suggesting <code>SessionStart</code> instead.</li>
+              <li><strong>Hook prerequisite probe.</strong> Templates can declare required files; if any are missing on disk, the install flow warns before proceeding.</li>
+              <li><strong>Stale toggle ID detection.</strong> Global Settings flags behavior toggles removed in a Foundry update so you can clean them up.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>New hooks default to <code>SessionStart</code>.</strong> Cheapest-fires-first by default; <code>PreToolUse</code> remains available for gating patterns.</li>
+              <li><strong>doc-currency moved to <code>SessionStart</code>.</strong> Previously fired on every read-type tool call; now fires once per session.</li>
+              <li><strong>Standing Order Gate installs conditionally.</strong> Empty teams now write zero hooks; removing agents cleans up the obsolete registrations.</li>
+            </ul>
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Fresh installs no longer ship redundant hooks.</strong> Prior versions auto-installed 4 system hooks + 3 helper scripts at every init regardless of agent state.</li>
+              <li><strong>Settings drift on agent removal.</strong> Old hook registrations no longer persist in <code>settings.json</code> pointing at deleted scripts.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
+            <span class="release-version">v1.0.1-beta</span>
+            <span class="release-title">Patch: reset hygiene, Electron data bundling, Scholar UI polish</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Reset cleanup is complete.</strong> Reset Project now also clears <code>foundry-baselines.json</code>, so baseline state doesn't drift across a reset.</li>
+              <li><strong>Behavior cleanup strips everything.</strong> Disabling a behavior toggle now removes all four artifact types (settings.json hook entries, settings keys + sidecar, and <code>.claude/hooks/foundry-*.mjs</code> files).</li>
+              <li><strong>Packaged builds load all data.</strong> The Electron installer now bundles <code>data/</code> runtime files into the standalone server, fixing bucket registries that silently failed to load.</li>
+              <li><strong>Scholar UI fills the column.</strong> The collapsed FAQ rail uses a single icon and fills its height; the chat panel now fills the full viewport.</li>
+              <li><strong>Doc-currency behavior, three small fixes.</strong> Custom stamp templates are validated, stdin handling is fixed, and <code>.mjs</code> hook scripts deploy correctly.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>Auto-updater follows the org.</strong> Release publishing and the in-app updater now point at <code>try-foundry/tryfoundry-releases</code>.</li>
+            </ul>
+            <div class="release-category">Removed</div>
+            <ul>
+              <li><strong>Re-scan project (legacy).</strong> The dead Re-scan path is gone from both entry points.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
+            <span class="release-version">v1.0.0-beta</span>
+            <span class="release-title">Baselines, templates, and path-scoped behaviors</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Headline Features</div>
+            <ul>
+              <li><strong>Per-item baselines.</strong> Every Foundry-managed item auto-captures its first deployed state. One click to reset if a Scholar revision goes sideways; one click to update when you settle on a new good state.</li>
+              <li><strong>Templates everywhere.</strong> Every bucket (hooks, agents, triggers, skills, rules, standards) now has a Pick from library modal with curated starters, plus an inline pill row in each editor for fast inserts.</li>
+              <li><strong>Path-scoped behaviors.</strong> All 29 behavior toggles support file glob scoping. A "Write tests in TDD style" rule fires only when Claude touches test files, keeping prompt payloads lean for focused work.</li>
+            </ul>
+            <div class="release-shots">
+              <div class="release-shot">
+                <img src="/screenshots/forge-baselines-menu.png" alt="Kebab menu on a Foundry-managed hook showing Set baseline and Reset to baseline actions"
+                     onerror="this.parentElement.style.display='none';" />
+              </div>
+              <div class="release-shot">
+                <img src="/screenshots/forge-hooks-pickfromlibrary.png" alt="Pick from library modal in the hooks bucket showing nine curated starter templates"
+                     onerror="this.parentElement.style.display='none';" />
+              </div>
+            </div>
+            <div class="release-category">Quality and Reliability</div>
+            <ul>
+              <li><strong>Reliable persistence.</strong> Standards and rules save correctly across both the wizard and disk-mode editor.</li>
+              <li><strong>Stable identities.</strong> Hooks and triggers carry stable IDs so baselines survive a reload.</li>
+              <li><strong>Atomic writes.</strong> The <code>.claude/</code> tree writes atomically; no more half-written files on crash.</li>
+              <li><strong>Failure transparency.</strong> When Scholar generation fails, you see why instead of a silent fallback.</li>
+              <li><strong>Browseable reasoning.</strong> Mid-flow Scholar reasoning is accessible via a dedicated modal.</li>
+              <li><strong>Better diffs.</strong> Agent diffs now surface model, effort, and disallowed-tools changes that previously applied invisibly.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
+            <span class="release-version">v0.9.0</span>
+            <span class="release-title">Forge editor, 2x2 taxonomy, and interview overhaul</span>
+            <span class="release-date">March 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">New</div>
+            <ul>
+              <li><strong>Forge editor.</strong> A persistent dashboard for modifying your team config after initial setup. Every bucket editable in one place: hooks, agents, behaviors, triggers, skills, MCPs, and project context.</li>
+              <li><strong>2x2 agent taxonomy.</strong> Agents now carry a role (Specialist or Guardian) and a kind (Worker or Scholar). Shown on every roster card and in every generated file.</li>
+              <li><strong>Interview overhaul.</strong> The onboarding interview is now a real conversation: 8 to 12 focused questions, developer-skill pills, and a natural back-and-forth instead of a form.</li>
+              <li><strong>Domain exclusions.</strong> Per-domain rules for where agents operate. Keeps test-only agents away from production paths.</li>
+            </ul>
+            <div class="release-category">Fixes</div>
+            <ul>
+              <li>MemPalace bridge deduplication removed dev console error spam.</li>
+              <li>Wizard post-creation handoff state corrected after navigation changes.</li>
+              <li>Tooling detection in the scope step now reports specific package names.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
+            <span class="release-version">v0.8.0</span>
+            <span class="release-title">Initial release: wizard, Graphify, and first agents</span>
+            <span class="release-date">January 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">First Release</div>
+            <ul>
+              <li><strong>Six-step wizard.</strong> Analyze, Scope, Interview, Brief, Approve, Install. From empty repo to running team in one pass.</li>
+              <li><strong>Graphify integration.</strong> Local codebase graph built on every commit. Agents query it instead of reading raw files, around 71x fewer tokens for structural questions.</li>
+              <li><strong>MemPalace memory.</strong> Decisions and conventions accumulate across sessions, searchable by memory-capable agents.</li>
+              <li><strong>Behavior toggles.</strong> Initial set of 20 toggles covering commit hygiene, planning gates, documentation checks, and standing-order controls.</li>
+              <li><strong>First agent roster.</strong> Code Reviewer, Security Guardian, Architecture Historian, Compliance Auditor, and Test Runner. All generated from your interview with role and kind already set.</li>
+            </ul>
+          </div>
+        </details>
+
       </div>
     </section>
 
@@ -1087,148 +1229,6 @@
             <li>Scholar chat available throughout the Forge to refine any proposal</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- Release notes -->
-    <section id="whats-new">
-      <div class="section-title">
-        <span class="section-eyebrow">Changelog</span>
-        <h2>Latest releases.</h2>
-        <p>The three most recent. <a href="/build-notes.html" style="color:#a78bfa; text-decoration:underline;">See full build notes →</a></p>
-      </div>
-      <div class="release-notes">
-
-        <details class="release-item" open>
-          <summary>
-            <span class="release-version">v1.1.0-beta</span>
-            <span class="release-title">Cost-aware hooks, install-time linting, zero-hook fresh installs</span>
-            <span class="release-date">April 2026</span>
-          </summary>
-          <div class="release-body">
-            <div class="release-category">New</div>
-            <ul>
-              <li><strong>Firing-rate badges.</strong> Every hook starter template carries a cost-profile badge (<code>session-start</code>, <code>per-tool-call</code>, etc.) so you see how chatty a hook is before installing.</li>
-              <li><strong>Static-text linter.</strong> When a <code>PreToolUse</code> or <code>PostToolUse</code> hook just echoes constant text, the editor surfaces a soft-warn banner suggesting <code>SessionStart</code> instead.</li>
-              <li><strong>Hook prerequisite probe.</strong> Templates can declare required files; if any are missing on disk, the install flow warns before proceeding.</li>
-              <li><strong>Stale toggle ID detection.</strong> Global Settings flags behavior toggles removed in a Foundry update so you can clean them up.</li>
-            </ul>
-            <div class="release-category">Changed</div>
-            <ul>
-              <li><strong>New hooks default to <code>SessionStart</code>.</strong> Cheapest-fires-first by default; <code>PreToolUse</code> remains available for gating patterns.</li>
-              <li><strong>doc-currency moved to <code>SessionStart</code>.</strong> Previously fired on every read-type tool call; now fires once per session.</li>
-              <li><strong>Standing Order Gate installs conditionally.</strong> Empty teams now write zero hooks; removing agents cleans up the obsolete registrations.</li>
-            </ul>
-            <div class="release-category">Fixed</div>
-            <ul>
-              <li><strong>Fresh installs no longer ship redundant hooks.</strong> Prior versions auto-installed 4 system hooks + 3 helper scripts at every init regardless of agent state.</li>
-              <li><strong>Settings drift on agent removal.</strong> Old hook registrations no longer persist in <code>settings.json</code> pointing at deleted scripts.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="release-item">
-          <summary>
-            <span class="release-version">v1.0.1-beta</span>
-            <span class="release-title">Patch: reset hygiene, Electron data bundling, Scholar UI polish</span>
-            <span class="release-date">April 2026</span>
-          </summary>
-          <div class="release-body">
-            <div class="release-category">Fixed</div>
-            <ul>
-              <li><strong>Reset cleanup is complete.</strong> Reset Project now also clears <code>foundry-baselines.json</code>, so baseline state doesn't drift across a reset.</li>
-              <li><strong>Behavior cleanup strips everything.</strong> Disabling a behavior toggle now removes all four artifact types (settings.json hook entries, settings keys + sidecar, and <code>.claude/hooks/foundry-*.mjs</code> files).</li>
-              <li><strong>Packaged builds load all data.</strong> The Electron installer now bundles <code>data/</code> runtime files into the standalone server, fixing bucket registries that silently failed to load.</li>
-              <li><strong>Scholar UI fills the column.</strong> The collapsed FAQ rail uses a single icon and fills its height; the chat panel now fills the full viewport.</li>
-              <li><strong>Doc-currency behavior, three small fixes.</strong> Custom stamp templates are validated, stdin handling is fixed, and <code>.mjs</code> hook scripts deploy correctly.</li>
-            </ul>
-            <div class="release-category">Changed</div>
-            <ul>
-              <li><strong>Auto-updater follows the org.</strong> Release publishing and the in-app updater now point at <code>try-foundry/tryfoundry-releases</code>.</li>
-            </ul>
-            <div class="release-category">Removed</div>
-            <ul>
-              <li><strong>Re-scan project (legacy).</strong> The dead Re-scan path is gone from both entry points.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="release-item">
-          <summary>
-            <span class="release-version">v1.0.0-beta</span>
-            <span class="release-title">Baselines, templates, and path-scoped behaviors</span>
-            <span class="release-date">April 2026</span>
-          </summary>
-          <div class="release-body">
-            <div class="release-category">Headline Features</div>
-            <ul>
-              <li><strong>Per-item baselines.</strong> Every Foundry-managed item auto-captures its first deployed state. One click to reset if a Scholar revision goes sideways; one click to update when you settle on a new good state.</li>
-              <li><strong>Templates everywhere.</strong> Every bucket (hooks, agents, triggers, skills, rules, standards) now has a Pick from library modal with curated starters, plus an inline pill row in each editor for fast inserts.</li>
-              <li><strong>Path-scoped behaviors.</strong> All 29 behavior toggles support file glob scoping. A "Write tests in TDD style" rule fires only when Claude touches test files, keeping prompt payloads lean for focused work.</li>
-            </ul>
-            <div class="release-shots">
-              <div class="release-shot">
-                <img src="/screenshots/forge-baselines-menu.png" alt="Kebab menu on a Foundry-managed hook showing Set baseline and Reset to baseline actions"
-                     onerror="this.parentElement.style.display='none';" />
-              </div>
-              <div class="release-shot">
-                <img src="/screenshots/forge-hooks-pickfromlibrary.png" alt="Pick from library modal in the hooks bucket showing nine curated starter templates"
-                     onerror="this.parentElement.style.display='none';" />
-              </div>
-            </div>
-            <div class="release-category">Quality and Reliability</div>
-            <ul>
-              <li><strong>Reliable persistence.</strong> Standards and rules save correctly across both the wizard and disk-mode editor.</li>
-              <li><strong>Stable identities.</strong> Hooks and triggers carry stable IDs so baselines survive a reload.</li>
-              <li><strong>Atomic writes.</strong> The <code>.claude/</code> tree writes atomically; no more half-written files on crash.</li>
-              <li><strong>Failure transparency.</strong> When Scholar generation fails, you see why instead of a silent fallback.</li>
-              <li><strong>Browseable reasoning.</strong> Mid-flow Scholar reasoning is accessible via a dedicated modal.</li>
-              <li><strong>Better diffs.</strong> Agent diffs now surface model, effort, and disallowed-tools changes that previously applied invisibly.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="release-item">
-          <summary>
-            <span class="release-version">v0.9.0</span>
-            <span class="release-title">Forge editor, 2x2 taxonomy, and interview overhaul</span>
-            <span class="release-date">March 2026</span>
-          </summary>
-          <div class="release-body">
-            <div class="release-category">New</div>
-            <ul>
-              <li><strong>Forge editor.</strong> A persistent dashboard for modifying your team config after initial setup. Every bucket editable in one place: hooks, agents, behaviors, triggers, skills, MCPs, and project context.</li>
-              <li><strong>2x2 agent taxonomy.</strong> Agents now carry a role (Specialist or Guardian) and a kind (Worker or Scholar). Shown on every roster card and in every generated file.</li>
-              <li><strong>Interview overhaul.</strong> The onboarding interview is now a real conversation: 8 to 12 focused questions, developer-skill pills, and a natural back-and-forth instead of a form.</li>
-              <li><strong>Domain exclusions.</strong> Per-domain rules for where agents operate. Keeps test-only agents away from production paths.</li>
-            </ul>
-            <div class="release-category">Fixes</div>
-            <ul>
-              <li>MemPalace bridge deduplication removed dev console error spam.</li>
-              <li>Wizard post-creation handoff state corrected after navigation changes.</li>
-              <li>Tooling detection in the scope step now reports specific package names.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="release-item">
-          <summary>
-            <span class="release-version">v0.8.0</span>
-            <span class="release-title">Initial release: wizard, Graphify, and first agents</span>
-            <span class="release-date">January 2026</span>
-          </summary>
-          <div class="release-body">
-            <div class="release-category">First Release</div>
-            <ul>
-              <li><strong>Six-step wizard.</strong> Analyze, Scope, Interview, Brief, Approve, Install. From empty repo to running team in one pass.</li>
-              <li><strong>Graphify integration.</strong> Local codebase graph built on every commit. Agents query it instead of reading raw files, around 71x fewer tokens for structural questions.</li>
-              <li><strong>MemPalace memory.</strong> Decisions and conventions accumulate across sessions, searchable by memory-capable agents.</li>
-              <li><strong>Behavior toggles.</strong> Initial set of 20 toggles covering commit hygiene, planning gates, documentation checks, and standing-order controls.</li>
-              <li><strong>First agent roster.</strong> Code Reviewer, Security Guardian, Architecture Historian, Compliance Auditor, and Test Runner. All generated from your interview with role and kind already set.</li>
-            </ul>
-          </div>
-        </details>
-
       </div>
     </section>
 
