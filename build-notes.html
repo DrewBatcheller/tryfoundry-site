@@ -339,6 +339,34 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.1.0-beta</span>
+            <span class="release-title">Cost-aware hooks, install-time linting, zero-hook fresh installs</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">New</div>
+            <ul>
+              <li><strong>Firing-rate badges.</strong> Every hook starter template carries a cost-profile badge (<code>session-start</code>, <code>per-tool-call</code>, etc.) so you see how chatty a hook is before installing.</li>
+              <li><strong>Static-text linter.</strong> When a <code>PreToolUse</code> or <code>PostToolUse</code> hook just echoes constant text, the editor surfaces a soft-warn banner suggesting <code>SessionStart</code> instead. Claude absorbs the message once, not on every tool call.</li>
+              <li><strong>Hook prerequisite probe.</strong> Templates can declare required files; if any are missing on disk, the install flow warns before proceeding.</li>
+              <li><strong>Stale toggle ID detection.</strong> Global Settings now flags behavior toggles removed in a Foundry update so you can clean them up with one click.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>New hooks default to <code>SessionStart</code>.</strong> Cheapest-fires-first by default; <code>PreToolUse</code> remains available for gating patterns.</li>
+              <li><strong>doc-currency moved to <code>SessionStart</code>.</strong> Previously fired on every read-type tool call (~30 redundant injections per session); now fires once.</li>
+              <li><strong>Standing Order Gate installs conditionally.</strong> Empty teams now write zero hooks. Removing the last standing-orders agent or memory-capable agent and re-initing actually cleans up the obsolete hook registrations and helper scripts.</li>
+            </ul>
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Fresh installs no longer ship redundant hooks.</strong> Prior versions auto-installed 4 system hooks + 3 helper scripts at every init regardless of agent state.</li>
+              <li><strong>Settings drift on agent removal.</strong> Old hook registrations no longer persist in <code>settings.json</code> pointing at deleted scripts.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.0.1-beta</span>
             <span class="release-title">Patch: reset hygiene, Electron data bundling, Scholar UI polish</span>
             <span class="release-date">April 2026</span>
