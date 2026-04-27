@@ -330,7 +330,7 @@
 
     <div class="tab-bar">
       <button class="tab active" data-tab="releases">Release Notes <span class="tab-count">3</span></button>
-      <button class="tab" data-tab="upcoming">Upcoming Features <span class="tab-count">5</span></button>
+      <button class="tab" data-tab="upcoming">Upcoming Features <span class="tab-count">10</span></button>
     </div>
 
     <!-- ── Release Notes tab ───────────────────────────────────────────────── -->
@@ -338,6 +338,32 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.0.1-beta</span>
+            <span class="release-title">Patch: reset hygiene, Electron data bundling, Scholar UI polish</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Reset cleanup is complete.</strong> Reset Project now also clears <code>foundry-baselines.json</code>, so baseline state doesn't drift across a reset.</li>
+              <li><strong>Behavior cleanup strips everything.</strong> Disabling a behavior toggle now removes all four artifact types (settings.json hook entries, settings keys + sidecar, and <code>.claude/hooks/foundry-*.mjs</code> files).</li>
+              <li><strong>Packaged builds load all data.</strong> The Electron installer now bundles <code>data/</code> runtime files into the standalone server, fixing bucket registries that silently failed to load.</li>
+              <li><strong>Scholar UI fills the column.</strong> The collapsed FAQ rail uses a single icon and fills its height; the chat panel now fills the full viewport.</li>
+              <li><strong>Doc-currency behavior, three small fixes.</strong> Custom stamp templates are validated, stdin handling is fixed, and <code>.mjs</code> hook scripts deploy correctly.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>Auto-updater follows the org.</strong> Release publishing and the in-app updater now point at <code>try-foundry/tryfoundry-releases</code>.</li>
+            </ul>
+            <div class="release-category">Removed</div>
+            <ul>
+              <li><strong>Re-scan project (legacy).</strong> The dead Re-scan path is gone from both entry points.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.0.0-beta</span>
             <span class="release-title">Baselines, templates, and path-scoped behaviors</span>
@@ -419,10 +445,44 @@
     <!-- ── Upcoming Features tab ──────────────────────────────────────────── -->
     <section class="tab-panel" data-panel="upcoming">
       <p class="upcoming-lead">Features committed for upcoming releases. No hard ETAs. They ship when they're ready, and the next release notes will tell you which ones landed.</p>
-      <div class="upcoming-list">
+
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#a78bfa;margin-bottom:12px;">Foundry 2.0</div>
+      <div class="upcoming-list" style="margin-bottom:32px;">
 
         <div class="upcoming-item">
           <div class="upcoming-num">1</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Foundry MCP server</div>
+            <div class="upcoming-desc">Configure your agent team without leaving Claude Code. The Foundry engine exposed as an MCP server — install agents, update hooks, query your team from inside a session.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">2</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">UX overhaul</div>
+            <div class="upcoming-desc">A full visual and interaction redesign across every surface. Foundry 1.0 gets the engine right; the overhaul gets the feel right.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">3</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">New Robots — card illustrations and branding</div>
+            <div class="upcoming-desc">Distinct character illustrations for every agent role and quadrant position, plus updated robot branding throughout the app.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">4</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Font and style options</div>
+            <div class="upcoming-desc">Choose your typography and visual style: font family, density, accent color. Foundry configures your tools — it should look like yours too.</div>
+          </div>
+        </div>
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">5</div>
           <div class="upcoming-content">
             <div class="upcoming-title">Pause / resume any installed item</div>
             <div class="upcoming-desc">Temporarily disable a hook, rule, or behavior without deleting it. Resume restores it exactly as it was. Useful when you want to turn something off for a debugging session, then put it back.</div>
@@ -430,7 +490,7 @@
         </div>
 
         <div class="upcoming-item">
-          <div class="upcoming-num">2</div>
+          <div class="upcoming-num">6</div>
           <div class="upcoming-content">
             <div class="upcoming-title">Cross-project template library</div>
             <div class="upcoming-desc">Save any baseline as a reusable template. Future projects, and your other repos, pick it up automatically. Patterns you've already perfected, ready to drop into the next codebase without re-deriving them.</div>
@@ -438,7 +498,7 @@
         </div>
 
         <div class="upcoming-item">
-          <div class="upcoming-num">3</div>
+          <div class="upcoming-num">7</div>
           <div class="upcoming-content">
             <div class="upcoming-title">Multi-step undo per item</div>
             <div class="upcoming-desc">A persistent N-deep undo stack on every Foundry-managed item, in addition to the single-snapshot baseline. Walk back through Scholar revisions one at a time instead of jumping all the way to baseline.</div>
@@ -446,7 +506,7 @@
         </div>
 
         <div class="upcoming-item">
-          <div class="upcoming-num">4</div>
+          <div class="upcoming-num">8</div>
           <div class="upcoming-content">
             <div class="upcoming-title">Baseline diff view</div>
             <div class="upcoming-desc">When a live item diverges from its baseline, see exactly what changed inline. No more guessing whether to reset, update, or keep iterating. The diff tells you.</div>
@@ -454,10 +514,23 @@
         </div>
 
         <div class="upcoming-item">
-          <div class="upcoming-num">5</div>
+          <div class="upcoming-num">9</div>
           <div class="upcoming-content">
             <div class="upcoming-title">Per-agent domain exclusions</div>
             <div class="upcoming-desc">Each agent gets its own "stay out of these paths" list, prefilled from the project-wide exclusions and overridable. Lets you have a research agent that ignores <code>vendor/</code> while a build agent doesn't.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:12px;">Foundry 3.0</div>
+      <div class="upcoming-list" style="padding-bottom:80px;">
+
+        <div class="upcoming-item">
+          <div class="upcoming-num">10</div>
+          <div class="upcoming-content">
+            <div class="upcoming-title">Portable agentic teams</div>
+            <div class="upcoming-desc">Your Foundry team shouldn't be locked to one tool. In v3, Scholar designs a platform-agnostic agent team that exports to any AI coding assistant — Cursor, Windsurf, GitHub Copilot, and more. Same roles, same guardrails, same restore-points. One team. Every tool.</div>
           </div>
         </div>
 

@@ -896,7 +896,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.0.0 Beta · Launching Now</span>
+      <span class="beta-badge">v1.0.1 Beta · Launching Now</span>
       <h1>Your project shapes your <span class="accent">Claude Code setup.</span></h1>
       <p class="hero-sub">
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
@@ -1100,6 +1100,32 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.0.1-beta</span>
+            <span class="release-title">Patch: reset hygiene, Electron data bundling, Scholar UI polish</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Reset cleanup is complete.</strong> Reset Project now also clears <code>foundry-baselines.json</code>, so baseline state doesn't drift across a reset.</li>
+              <li><strong>Behavior cleanup strips everything.</strong> Disabling a behavior toggle now removes all four artifact types (settings.json hook entries, settings keys + sidecar, and <code>.claude/hooks/foundry-*.mjs</code> files).</li>
+              <li><strong>Packaged builds load all data.</strong> The Electron installer now bundles <code>data/</code> runtime files into the standalone server, fixing bucket registries that silently failed to load.</li>
+              <li><strong>Scholar UI fills the column.</strong> The collapsed FAQ rail uses a single icon and fills its height; the chat panel now fills the full viewport.</li>
+              <li><strong>Doc-currency behavior, three small fixes.</strong> Custom stamp templates are validated, stdin handling is fixed, and <code>.mjs</code> hook scripts deploy correctly.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>Auto-updater follows the org.</strong> Release publishing and the in-app updater now point at <code>try-foundry/tryfoundry-releases</code>.</li>
+            </ul>
+            <div class="release-category">Removed</div>
+            <ul>
+              <li><strong>Re-scan project (legacy).</strong> The dead Re-scan path is gone from both entry points.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.0.0-beta</span>
             <span class="release-title">Baselines, templates, and path-scoped behaviors</span>
