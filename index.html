@@ -959,7 +959,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.1.0 Beta · Live</span>
+      <span class="beta-badge">v1.1.1 Beta · Live</span>
       <h1>Your project shapes your <span class="accent">Claude Code setup.</span></h1>
       <p class="hero-sub">
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
@@ -1004,6 +1004,21 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.1.1-beta</span>
+            <span class="release-title">Documentation Enforcement: modular docs scaffold</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>Documentation Enforcement scaffolds a real docs structure on enable.</strong> The toggle now writes two starter files into your docs folder if absent: a skeleton <code>README.md</code> index and a full <code>documentation-standards.md</code> methodology doc. The <code>.claude/rules/foundry-doc-currency.md</code> rules file is now a thin pointer (~30 lines) instead of a self-contained reference. You own the starter docs after first write; Foundry never overwrites or removes them.</li>
+              <li><strong>Existing users:</strong> the new shape applies on next toggle re-apply. Resave the toggle in Foundry Settings to pick up the scaffold.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.1.0-beta</span>
             <span class="release-title">Cost-aware hooks, install-time linting, zero-hook fresh installs</span>

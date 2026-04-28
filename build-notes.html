@@ -339,6 +339,25 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.1.1-beta</span>
+            <span class="release-title">Documentation Enforcement: modular docs scaffold</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>Documentation Enforcement scaffolds a real docs structure on enable.</strong> The toggle now writes two starter files into your docs folder if absent: a skeleton <code>README.md</code> index and a full <code>documentation-standards.md</code> methodology doc (stamp format, citing rules, sister-repos guidance, "topic content goes in topic docs not CLAUDE.md"). The <code>.claude/rules/foundry-doc-currency.md</code> rules file is now a thin pointer (~30 lines) instead of a self-contained ~70-line reference. Once Foundry writes those starter docs, you own them: edit freely, Foundry never overwrites or removes them on toggle disable.</li>
+              <li><strong>Existing users:</strong> the new shape applies on next toggle re-apply. Resave the toggle in Foundry Settings to pick up the scaffold.</li>
+            </ul>
+            <div class="release-category">Internal</div>
+            <ul>
+              <li>New <code>BehaviorManifest</code> type <code>'doc-bootstrap'</code> for write-once scaffolding (write only if absent, never overwrite, never remove on cleanup). Reusable for future toggles that seed user-owned content.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.1.0-beta</span>
             <span class="release-title">Cost-aware hooks, install-time linting, zero-hook fresh installs</span>
             <span class="release-date">April 2026</span>
