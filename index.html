@@ -959,7 +959,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.2.1 Beta · Live</span>
+      <span class="beta-badge">v1.2.2 Beta · Live</span>
       <h1>Your project shapes your <span class="accent">Claude Code setup.</span></h1>
       <p class="hero-sub">
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
@@ -1004,6 +1004,26 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.2.2-beta</span>
+            <span class="release-title">Shared context imports healed</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>CLAUDE.md managed block now references shared resources that actually exist.</strong> The block was hard-coding a reference to a file Foundry never writes, so every freshly-init'd project shipped with a broken import that Claude Code silently skipped. The @-ref list is now derived from the resource manifest, so it always matches what is on disk.</li>
+              <li><strong>Shared-resource writes now auto-refresh the managed block.</strong> Adding a new shared resource via any Foundry init or agent path immediately updates the @-refs in CLAUDE.md without waiting for the next Save Team.</li>
+              <li><strong>Empty-roster projects keep their shared @-refs.</strong> A project with shared context docs but no agents now correctly retains those imports instead of stripping the entire block.</li>
+            </ul>
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>App-startup project sweep.</strong> On launch, Foundry rebuilds the CLAUDE.md managed block for every known project from its current resource manifest. Heals any project that existed before the auto-refresh wiring landed.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.2.1-beta</span>
             <span class="release-title">Auto-updater fix</span>
