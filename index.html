@@ -959,7 +959,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.2.0 Beta · Live</span>
+      <span class="beta-badge">v1.2.1 Beta · Live</span>
       <h1>Your project shapes your <span class="accent">Claude Code setup.</span></h1>
       <p class="hero-sub">
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
@@ -1004,6 +1004,20 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.2.1-beta</span>
+            <span class="release-title">Auto-updater fix</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Auto-updater now reliably detects and delivers updates.</strong> A channel-detection bug in <code>electron-updater</code> caused the updater to look for a <code>beta.yml</code> manifest that was never published, silently reporting "no update available" on every check. This has been present since the first beta. The fix pins the channel to <code>latest.yml</code> and enables prerelease-to-prerelease update delivery.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.2.0-beta</span>
             <span class="release-title">Cleaner reset and full init visibility</span>

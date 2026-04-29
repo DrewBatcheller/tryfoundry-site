@@ -339,6 +339,20 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.2.1-beta</span>
+            <span class="release-title">Auto-updater fix</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Auto-updater now reliably detects and delivers updates.</strong> A channel-detection bug in <code>electron-updater</code> caused the updater to look for a <code>beta.yml</code> manifest that was never published, silently reporting "no update available" on every check. This has been present since the first beta. The fix pins the channel to <code>latest.yml</code> and enables prerelease-to-prerelease update delivery.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.2.0-beta</span>
             <span class="release-title">Cleaner reset and full init visibility</span>
             <span class="release-date">April 2026</span>
