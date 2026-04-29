@@ -329,7 +329,7 @@
     </section>
 
     <div class="tab-bar">
-      <button class="tab active" data-tab="releases">Release Notes <span class="tab-count">3</span></button>
+      <button class="tab active" data-tab="releases">Release Notes <span class="tab-count">4</span></button>
       <button class="tab" data-tab="upcoming">Upcoming Features <span class="tab-count">10</span></button>
     </div>
 
@@ -338,6 +338,25 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.2.0-beta</span>
+            <span class="release-title">Cleaner reset and full init visibility</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>Foundry self-introduces at init.</strong> A context note is written into Claude Code's per-project memory directory so agents working in a Foundry-managed repo immediately know which <code>.claude/</code> files are machine-local and which are committed source. Stops agents from trying to commit runtime files.</li>
+            </ul>
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Existing agents show up in the Forge during init.</strong> Agents already on disk in <code>.claude/agents/</code> now appear in the agents bucket alongside Scholar's proposals, tagged "existing" and deduped by name. Previously an on-disk agent could go invisible during init.</li>
+              <li><strong>Reset and uninstall leave zero trace.</strong> The <code># &gt;&gt;&gt; foundry &gt;&gt;&gt;</code> fence is stripped from <code>.gitignore</code> and Foundry's self-introduction is removed from Claude Code's per-project memory. CRLF-safe on Windows.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.1.1-beta</span>
             <span class="release-title">Documentation Enforcement: modular docs scaffold</span>
