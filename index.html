@@ -959,7 +959,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.2.2 Beta · Live</span>
+      <span class="beta-badge">v1.2.3 Beta · Live</span>
       <h1>Your project shapes your <span class="accent">Claude Code setup.</span></h1>
       <p class="hero-sub">
         Build everything yourself, or have Scholar read your codebase, ask the right questions, and write a complete <code>.claude/</code> setup: agents, hooks, rules, and behaviors. Every item editable in Forge, with one-click reset to baseline.
@@ -1004,6 +1004,25 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.2.3-beta</span>
+            <span class="release-title">Documentation Enforcement gains a procedural runbook</span>
+            <span class="release-date">April 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>Documentation Enforcement now scaffolds a step-by-step runbook.</strong> Enabling the toggle drops a third doc-bootstrap file alongside the index and standards: <code>documentation-runbook.md</code>, a five-step procedure (blast radius, update vs. create, write, index update, stamp) with a concrete exit condition on every step. Existing users see no overwrites; the runbook appears on next re-apply or fresh enable.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>The always-loaded rules file is now a thin pointer layer.</strong> Methodology no longer lives in the rules file; it points at the index, the standards (WHAT), and the runbook (HOW), plus the load-bearing rule that topic content lives in your docs folder, never in CLAUDE.md. Pre-commit checklist consolidated into the runbook so there is exactly one canonical version.</li>
+              <li><strong>The post-write hook nudge now references the runbook by path.</strong> When Claude finishes writing a structural change, the advisory points at the runbook procedure rather than asking it to "update or create a doc."</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.2.2-beta</span>
             <span class="release-title">Shared context imports healed</span>
