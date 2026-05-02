@@ -339,6 +339,31 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.3.0-beta</span>
+            <span class="release-title">Graphify guidance reaches the orchestrator</span>
+            <span class="release-date">May 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>SessionStart hook tells the orchestrating Claude to query graphify before grepping.</strong> Without it, Claude saw graphify as registered MCP tools but had no instruction to use them proactively, so it defaulted to grep/read across unfamiliar files. Hook is managed, idempotent, and removed cleanly on reset.</li>
+              <li><strong><code>.graphifyignore</code> is written to your project on first scan.</strong> Mirrors the in-process skip list (<code>node_modules</code>, <code>.next</code>, <code>dist</code>, <code>build</code>, <code>vendor</code>, etc.) so the post-commit graphify update skips the same directories. Idempotent: never overwrites a file you have edited.</li>
+              <li><strong>Post-commit summary regen.</strong> A new shim and a markered Foundry block in <code>.git/hooks/post-commit</code> keep the auto-loaded codebase summary fresh after every commit. Closes the staleness loop: graphify rebuilds the graph on commit, the shim immediately refreshes the summary file Claude sees on every turn.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>The auto-loaded codebase summary now addresses the orchestrator directly.</strong> Previous wording read as delegation-gated and steered the main thread away from using graphify itself. The new copy is a direct project rule: query graphify before exploring 3+ unfamiliar files, local tool, no token cost.</li>
+            </ul>
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Settings to "Refresh code graph" now refreshes the summary file too.</strong> Previously the manual refresh button rebuilt the graph but left the auto-loaded summary stale until the next full wizard or analyze run.</li>
+              <li><strong>Wizard-init scan path now installs graphify's git hooks for parity with the analyze path.</strong> Without this, a project initialized via the wizard never got post-commit auto-rebuild.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.2.3-beta</span>
             <span class="release-title">Documentation Enforcement gains a procedural runbook</span>
             <span class="release-date">April 2026</span>
