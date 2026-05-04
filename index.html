@@ -592,16 +592,38 @@
     /* How it works */
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 12px;
-      max-width: 1000px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 920px;
       margin: 0 auto;
     }
+    @media (max-width: 760px) {
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
+    }
     .step {
-      padding: 18px 16px;
+      padding: 20px 18px;
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
+    }
+    .manual-path-note {
+      max-width: 700px;
+      margin: 32px auto 0;
+      padding: 18px 22px;
+      background: rgba(139, 92, 246, 0.04);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.55;
+    }
+    .manual-path-note strong {
+      color: #fff;
+      font-weight: 600;
     }
     .step-num {
       display: inline-flex;
@@ -1478,6 +1500,9 @@
           <div class="step-title">Install</div>
           <div class="step-desc">Foundry writes your team configuration. Every artifact gets a baseline restore-point automatically.</div>
         </div>
+      </div>
+      <div class="manual-path-note">
+        <strong>Prefer to drive everything yourself?</strong> Skip the wizard and build your team by hand in Forge. Same edit surface, same install pipeline, no Scholar in the loop.
       </div>
       <div style="text-align:center; padding: 36px 0 0;">
         <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
