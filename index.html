@@ -238,6 +238,61 @@
       line-height: 1.5;
     }
 
+    /* Featured: Routines (1.4) */
+    .featured-routines {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 36px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 36px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(59, 130, 246, 0.02));
+      border: 1px solid rgba(139, 92, 246, 0.18);
+      border-radius: 20px;
+    }
+    .featured-routines .section-eyebrow { margin-bottom: 10px; }
+    .featured-routines h2 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+    .featured-routines-text > p {
+      font-size: 14.5px;
+      color: #9ca3af;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .featured-routines-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .featured-routines-list li {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.55;
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .featured-routines-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      color: #a78bfa;
+      font-size: 11px;
+    }
+    .featured-routines-list li strong { color: #fff; font-weight: 600; }
+    .featured-routines-mockup .artifact-header { font-size: 11px; }
+    .featured-routines-mockup .artifact-body { font-size: 11.5px; line-height: 1.55; }
+    @media (max-width: 880px) {
+      .featured-routines { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+    }
+
     /* Inline screenshot frame */
     .shot-inline {
       position: relative;
@@ -981,7 +1036,7 @@
     </nav>
 
     <section class="hero">
-      <span class="beta-badge">v1.3.0 Beta · Live</span>
+      <span class="beta-badge">v1.4.0 Beta · Live</span>
       <h1>Build a Claude Code agent team, <span class="accent">tailored to your codebase.</span></h1>
       <p class="hero-sub">
         Foundry can read your project and write a complete <code>.claude/</code> for you: agents, hooks, rules, behaviors. Edit everything Foundry helps you make in Forge, and reset to baseline at any time.
@@ -989,7 +1044,7 @@
       <div class="cta-row" id="download">
         <a id="download-btn" href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Download Foundry 1.3 beta</span>
+          <span>Download Foundry 1.4 beta</span>
         </a>
         <a href="/build-notes.html" class="btn btn-secondary">
           See what's new
@@ -1016,6 +1071,49 @@
       </div>
     </section>
 
+    <!-- Featured: Routines (1.4) -->
+    <section style="padding: 32px 0 16px;">
+      <div class="container-wide">
+        <div class="featured-routines">
+          <div class="featured-routines-text">
+            <span class="section-eyebrow">New in 1.4</span>
+            <h2>Schedule your agents to run themselves.</h2>
+            <p>The Routines bucket turns any agent on your team into a scheduled task that runs in Claude Code Desktop. Compose agents, declare the connectors the routine needs, and Foundry writes a <code>SKILL.md</code> Desktop picks up automatically.</p>
+            <ul class="featured-routines-list">
+              <li><strong>Connector-aware.</strong> Foundry checks the routine's required connectors against your installed MCPs (Gmail, Slack, Notion, graphify, anything local stdio) and warns before deploy.</li>
+              <li><strong>Test before you ship.</strong> Every routine has a copy-pasteable Test command. Run it from your terminal once to confirm behavior, then click Deploy.</li>
+              <li><strong>Project or global scope.</strong> Tag a routine for one project to keep it scoped, or tag global to surface in every Foundry project's bucket.</li>
+              <li><strong>Failure-recovery built in.</strong> If a connector disappears after a routine deploys, the card shows a banner and reconnect link inline.</li>
+            </ul>
+          </div>
+          <div class="featured-routines-mockup">
+            <div class="artifact-card">
+              <div class="artifact-header">~/.claude/scheduled-tasks/morning-triage/SKILL.md</div>
+              <div class="artifact-body">
+<span class="dim">---</span><br>
+<span class="key">name:</span> <span class="str">"Morning Triage"</span><br>
+<span class="key">description:</span> <span class="str">"Scan inbox, summarize Slack DMs"</span><br>
+<span class="key">tags:</span> [global]<br>
+<span class="dim">---</span><br>
+<br>
+<span class="dim">## Required connectors</span><br>
+<span class="dim">- claude.ai Gmail</span><br>
+<span class="dim">- claude.ai Slack</span><br>
+<br>
+<span class="dim">## Composed agents</span><br>
+<span class="dim">- inbox-triage</span><br>
+<span class="dim">- slack-summarizer</span><br>
+<br>
+<span class="dim">## Schedule</span><br>
+<span class="key">cron:</span> <span class="str">"0 8 * * 1-5"</span><br>
+<span class="dim">→ Weekdays at 8:00 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Release notes -->
     <section id="whats-new">
       <div class="section-title">
@@ -1026,6 +1124,33 @@
       <div class="release-notes">
 
         <details class="release-item" open>
+          <summary>
+            <span class="release-version">v1.4.0-beta</span>
+            <span class="release-title">Routines: scheduled tasks for Claude Code Desktop</span>
+            <span class="release-date">May 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>New Routines bucket in Forge.</strong> Compose existing agents into a routine, set a schedule, pick required connectors (cloud MCPs like Gmail, Slack, Notion or local stdio servers), and choose project or global scope. Routines deploy to <code>~/.claude/scheduled-tasks/&lt;slug&gt;/SKILL.md</code> for Claude Code Desktop to pick up.</li>
+              <li><strong>Connector-aware scheduling.</strong> Foundry queries <code>claude mcp list</code> to detect what is installed and shows a status chip per required connector. Missing connectors warn you before deploy. If a connector disappears after deployment, the routine's card shows a failure-recovery banner.</li>
+              <li><strong>Active/Draft lifecycle.</strong> Build a routine as a Draft, click "Test it" to copy a runnable command with the correct CWD, Deploy when ready. Undeploy or edit any time without losing the definition.</li>
+              <li><strong>Four starter templates</strong> ship in the Routines bucket.</li>
+              <li><strong>Scholar can propose routines</strong> via a new <code>propose_routine</code> tool inside the Routines bucket conversation.</li>
+              <li><strong>Project vs. global scope</strong> on every routine via user-chosen visibility tags.</li>
+              <li><strong>"Keep my routines" toggle in reset.</strong> Routines are machine-global, so the reset/nuke dialog now has an explicit opt-out before wiping them.</li>
+              <li><strong>Apify capability registered</strong> as a recognized connector.</li>
+            </ul>
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>HTTP-transport MCP <code>apiKeySet</code> detection corrected.</strong> Status chips now reflect configured keys correctly.</li>
+              <li><strong>Local stdio MCP servers health-check correctly.</strong> Connector detection now passes <code>projectPath</code>, so local stdio servers no longer always appear as unavailable.</li>
+              <li><strong><code>test-it</code> command sets CWD correctly.</strong> The copied test command uses <code>cd &lt;path&gt; &amp;&amp;</code> rather than <code>--add-dir</code>, so it runs in the expected project context.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
           <summary>
             <span class="release-version">v1.3.0-beta</span>
             <span class="release-title">Graphify guidance reaches the orchestrator</span>
@@ -1311,7 +1436,7 @@
       <div style="text-align:center; padding: 32px 0 0;">
         <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:14px; padding:11px 20px;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Foundry 1.3 beta
+          Download Foundry 1.4 beta
         </a>
         <div style="margin-top:9px; font-size:12px; color:#6b7280;">Free during beta · Windows 10/11 · Bring your own Anthropic API key</div>
       </div>
@@ -1507,7 +1632,7 @@
       <div style="text-align:center; padding: 36px 0 0;">
         <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Foundry 1.3 beta
+          Download Foundry 1.4 beta
         </a>
         <div style="margin-top:9px; font-size:12px; color:#6b7280;">Free during beta · Windows 10/11 · Bring your own Anthropic API key</div>
       </div>
@@ -1525,7 +1650,7 @@
         <div style="margin-top:22px;">
           <a href="https://github.com/try-foundry/tryfoundry-releases/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Foundry 1.3 beta
+            Download Foundry 1.4 beta
           </a>
           <div style="margin-top:9px; font-size:12px; color:#6b7280;">Free during beta · Windows 10/11 · Bring your own Anthropic API key</div>
         </div>

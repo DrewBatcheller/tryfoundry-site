@@ -339,6 +339,33 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.4.0-beta</span>
+            <span class="release-title">Routines: scheduled tasks for Claude Code Desktop</span>
+            <span class="release-date">May 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>New Routines bucket in Forge.</strong> Compose existing agents into a routine, set a schedule, pick required connectors (cloud MCPs like Gmail, Slack, Notion or local stdio servers), and choose project or global scope. Routines deploy to <code>~/.claude/scheduled-tasks/&lt;slug&gt;/SKILL.md</code> for Claude Code Desktop to pick up.</li>
+              <li><strong>Connector-aware scheduling.</strong> Foundry queries <code>claude mcp list</code> to detect what is installed and shows a status chip per required connector. Missing connectors warn you before deploy. If a connector disappears after deployment, the routine's card shows a failure-recovery banner.</li>
+              <li><strong>Active/Draft lifecycle.</strong> Build a routine as a Draft, click "Test it" to copy a runnable command with the correct CWD, Deploy when ready. Undeploy or edit any time without losing the definition.</li>
+              <li><strong>Four starter templates</strong> ship in the Routines bucket.</li>
+              <li><strong>Scholar can propose routines</strong> via a new <code>propose_routine</code> tool inside the Routines bucket conversation.</li>
+              <li><strong>Project vs. global scope</strong> on every routine via user-chosen visibility tags.</li>
+              <li><strong>"Keep my routines" toggle in reset.</strong> Routines are machine-global, so the reset/nuke dialog now has an explicit opt-out before wiping them.</li>
+              <li><strong>Apify capability registered</strong> as a recognized connector.</li>
+            </ul>
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>HTTP-transport MCP <code>apiKeySet</code> detection corrected.</strong> Status chips now reflect configured keys correctly.</li>
+              <li><strong>Local stdio MCP servers health-check correctly.</strong> Connector detection now passes <code>projectPath</code>, so local stdio servers no longer always appear as unavailable.</li>
+              <li><strong><code>test-it</code> command sets CWD correctly.</strong> The copied test command uses <code>cd &lt;path&gt; &amp;&amp;</code> rather than <code>--add-dir</code>, so it runs in the expected project context.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.3.0-beta</span>
             <span class="release-title">Graphify guidance reaches the orchestrator</span>
             <span class="release-date">May 2026</span>
