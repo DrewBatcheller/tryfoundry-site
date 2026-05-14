@@ -339,6 +339,30 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.4.2-beta</span>
+            <span class="release-title">Auto-updater fix + Graphify/MemPalace are optional</span>
+            <span class="release-date">May 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Auto-updater works for prerelease users again.</strong> The v1.2.1 "channel pin" fix was actually the bug — pinning the channel to <code>latest</code> caused electron-updater's tag-discovery step to skip every prerelease in the feed silently, so the updater threw <code>ERR_UPDATER_NO_PUBLISHED_VERSIONS</code> and no banner ever appeared. Every prerelease user from v1.2.1 through v1.4.1 was affected. Dropping the pin lets the updater fall through to <code>latest.yml</code> correctly.</li>
+            </ul>
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>Auto-updater is now observable.</strong> The update banner renders all five states (checking, available, downloading with progress %, downloaded, error with Retry). A log file at <code>%APPDATA%/Foundry/logs/updater.log</code> captures every updater event for diagnosing silent failures. The initial-check delay dropped from 15s to 5s.</li>
+              <li><strong>Settings: an "App updates" panel</strong> with installed version and a manual "Check for updates" button.</li>
+              <li><strong>Settings: an "Optional MCP servers" panel</strong> for installing Graphify and MemPalace from outside the wizard, with the same streaming install experience.</li>
+            </ul>
+            <div class="release-category">Changed</div>
+            <ul>
+              <li><strong>Graphify and MemPalace are optional now, not required.</strong> The full-screen install gate that blocked the app on launch is gone. Both retiered from <code>required</code> to <code>recommended</code>; users discover and install them from Settings when they want them. Both degrade gracefully at runtime: the MemPalace bridge is fire-and-forget safe and the Scholar prompt has codebase-graph signals sealed off via the existing review boundary.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.4.1-beta</span>
             <span class="release-title">Windows install-gate hotfix</span>
             <span class="release-date">May 2026</span>
