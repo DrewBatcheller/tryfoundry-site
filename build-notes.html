@@ -339,6 +339,24 @@
 
         <details class="release-item" open>
           <summary>
+            <span class="release-version">v1.4.1-beta</span>
+            <span class="release-title">Windows install-gate hotfix</span>
+            <span class="release-date">May 2026</span>
+          </summary>
+          <div class="release-body">
+            <div class="release-category">Fixed</div>
+            <ul>
+              <li><strong>Install gate no longer hard-locks Windows users whose Python is reachable only via the <code>py</code> launcher.</strong> The graphify and mempalace install routes were running the registry's bare <code>pip install …</code> and <code>python -c …</code> commands directly, bypassing the python-runtime normalization the rest of Foundry uses. On Windows machines where Python is installed via the python.org installer's default path (bare <code>pip</code> isn't on PATH, but <code>py -3 -m pip</code> is), preflight passed but the actual install steps exited with code 1 and users were stuck on the gate. Both install routes now detect the canonical interpreter and rewrite each step before running.</li>
+            </ul>
+            <div class="release-category">Added</div>
+            <ul>
+              <li><strong>"Skip for now" escape hatch on the install gate's error state.</strong> Defense in depth so users with broken Python setups aren't permanently locked out. Skipping persists across launches; users run with degraded features (no codebase analysis, no semantic memory) and can re-install from Settings any time.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-item">
+          <summary>
             <span class="release-version">v1.4.0-beta</span>
             <span class="release-title">Routines: scheduled tasks for Claude Code Desktop</span>
             <span class="release-date">May 2026</span>
